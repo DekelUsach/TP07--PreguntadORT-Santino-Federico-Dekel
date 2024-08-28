@@ -8,6 +8,7 @@ public static class BD
     public static List<Categorias> ListaCategorias = new List<Categorias>();
     public static List<Dificultades> ListaDificultades = new List<Dificultades>();
     public static List<Preguntas> ListaPreguntas = new List<Preguntas>();
+        public static List<Preguntas> ListaRespuestas = new List<Preguntas>();
 
     /* METODOS */
     public static List<Categorias> ObtenerCategorias()
@@ -77,5 +78,13 @@ public static class BD
             return ListaPreguntas;
         }
     }
-    
+    public static List<Respuestas> ObtenerRespuestas(List<Preguntas> ListaPreguntas)
+    {
+        for (int i = 0; i < ListaPreguntas.Count(); i++)
+        {
+            string sql = "SELECT * FROM Respuestas WHERE IdPregunta = @ListaPreguntas[i].IdPregunta";
+            ListaRespuestas = db.Query<Preguntas>(sql)
+        }
+        return ListaRespuestas;
+    }
 }
