@@ -8,7 +8,7 @@ public static class BD
     public static List<Categorias> ListaCategorias = new List<Categorias>();
     public static List<Dificultades> ListaDificultades = new List<Dificultades>();
     public static List<Preguntas> ListaPreguntas = new List<Preguntas>();
-        public static List<Preguntas> ListaRespuestas = new List<Preguntas>();
+    public static List<Respuestas> ListaRespuestas = new List<Respuestas>();
 
     /* METODOS */
     public static List<Categorias> ObtenerCategorias()
@@ -73,17 +73,20 @@ public static class BD
             using (SqlConnection db = new SqlConnection(_connectionString))
             {
                 string sql = "SELECT * FROM Preguntas WHERE IdCategoria = @pIdCategoria AND IdDificultad = @pIdDificultad";
-                ListaPreguntas = db.Query<Preguntas>(sql, new { pIdCategoria= categoria }).ToList();
+                ListaPreguntas = db.Query<Preguntas>(sql, new { pIdCategoria = categoria }).ToList();
             }
             return ListaPreguntas;
         }
     }
     public static List<Respuestas> ObtenerRespuestas(List<Preguntas> ListaPreguntas)
     {
-        for (int i = 0; i < ListaPreguntas.Count(); i++)
+        foreach () //(int i = 0; i < ListaPreguntas.Count(); i++)
         {
-            string sql = "SELECT * FROM Respuestas WHERE IdPregunta = @ListaPreguntas[i].IdPregunta";
-            ListaRespuestas = db.Query<Preguntas>(sql)
+            using (SqlConnection db = new SqlConnection(_connectionString))
+            { 
+                string sql = "SELECT * FROM Respuestas WHERE IdPregunta = @pListaPreguntas[i].IdPregunta";
+                ListaRespuestas = db.Query<Preguntas>(sql, new{ pIdPregunta = ListaPreguntas.IdPregunta }).ToList();
+            }
         }
         return ListaRespuestas;
     }
