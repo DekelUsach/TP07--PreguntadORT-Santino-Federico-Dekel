@@ -73,7 +73,7 @@ public static class BD
             using (SqlConnection db = new SqlConnection(_connectionString))
             {
                 string sql = "SELECT * FROM Preguntas WHERE IdCategoria = @pIdCategoria AND IdDificultad = @pIdDificultad";
-                ListaPreguntas = db.Query<Preguntas>(sql, new { pIdCategoria= categoria }).ToList();
+                ListaPreguntas = db.Query<Preguntas>(sql, new { pIdCategoria = categoria }).ToList();
             }
             return ListaPreguntas;
         }
