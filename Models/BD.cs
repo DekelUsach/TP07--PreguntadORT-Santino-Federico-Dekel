@@ -8,7 +8,7 @@ public static class BD
     public static List<Categorias> ListaCategorias = new List<Categorias>();
     public static List<Dificultades> ListaDificultades = new List<Dificultades>();
     public static List<Preguntas> ListaPreguntas = new List<Preguntas>();
-        public static List<Preguntas> ListaRespuestas = new List<Preguntas>();
+    public static List<Respuestas> ListaRespuestas = new List<Respuestas>();
 
     /* METODOS */
     public static List<Categorias> ObtenerCategorias()
@@ -80,10 +80,15 @@ public static class BD
     }
     public static List<Respuestas> ObtenerRespuestas(List<Preguntas> ListaPreguntas)
     {
-        for (int i = 0; i < ListaPreguntas.Count(); i++)
+        List<Respuestas> RespuestasProvisionales = new List<Respuestas>();
+        using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT * FROM Respuestas WHERE IdPregunta = @ListaPreguntas[i].IdPregunta";
-            ListaRespuestas = db.Query<Preguntas>(sql)
+            foreach(Preguntas pregunta in ListaPreguntas)
+            {
+                string sql = "SELECT * FROM Respuestas WHERE IdPregunta = @pIdPregunta";
+                RespuestasProvisionales = db.Query<Respuestas>(sql, new { pIdPregunta = pregunta.IdPregunta }).ToList();
+                ListaRespuestas.AddRange(RespuestasProvisionales);
+            }
         }
         return ListaRespuestas;
     }
