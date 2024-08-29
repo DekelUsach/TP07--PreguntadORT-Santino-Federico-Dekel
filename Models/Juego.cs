@@ -4,8 +4,8 @@ public static class Juego
     static string? Username;
     static int PuntajeActual;
     static int CantidadPreguntasCorrectas;
-    static List<Preguntas>? Preguntas;
-    static List<Respuestas>? Respuestas;
+    static public List<Preguntas>? Preguntas;
+    static public List<Respuestas>? Respuestas;
 
     /* METODOS */
     public static void InicializarJuego()
@@ -39,6 +39,7 @@ public static class Juego
     }
 
     public static bool VerificarRespuesta(int idPregunta, int idRespuesta, string respuesta)
+    // Recibe un id de pregunta y un id de respuesta, y retorna un booleano indicando si la respuesta fue correcta o incorrecta.
     {
         Preguntas.RemoveAt(idPregunta);
         if (Respuestas[idRespuesta].Contenido == respuesta)
