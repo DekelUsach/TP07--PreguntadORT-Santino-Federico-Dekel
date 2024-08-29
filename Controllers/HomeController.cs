@@ -30,7 +30,7 @@ public class HomeController : Controller
     {
         Juego.CargarPartida(username, dificultad, categoria);
 
-        if (BD.ListaPreguntas != null)
+        if (Juego.Preguntas != null)
         {
             return View("Jugar");   
         }

@@ -1,11 +1,11 @@
 public static class Juego
 {
     /* ATRIBUTOS */
-    static string? Username;
-    static int PuntajeActual;
-    static int CantidadPreguntasCorrectas;
-    static public List<Preguntas>? Preguntas;
-    static public List<Respuestas>? Respuestas;
+    public static string? Username;
+    public static int PuntajeActual;
+    public static int CantidadPreguntasCorrectas;
+    public static List<Preguntas>? Preguntas;
+    public static List<Respuestas>? Respuestas;
 
     /* METODOS */
     public static void InicializarJuego()
@@ -60,12 +60,13 @@ public static class Juego
         Preguntas.RemoveAt(idPregunta);
         if (Respuestas[idRespuesta].Contenido == respuesta)
         {
-            PuntajeActual++;
+            PuntajeActual+=100;
             CantidadPreguntasCorrectas++;
             return true;
         }
         else
         {
+            PuntajeActual-=40;
             return false;
         }
     }

@@ -4,11 +4,9 @@ using Dapper;
 public static class BD
 {
     /* ATRIBUTOS */
-    private static string _connectionString = @"Server=localhost;Database=JJOO;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=localhost;Database=TriviaDB;Trusted_Connection=True;";
     public static List<Categorias> ListaCategorias = new List<Categorias>();
     public static List<Dificultades> ListaDificultades = new List<Dificultades>();
-    public static List<Preguntas> ListaPreguntas = new List<Preguntas>();
-    public static List<Respuestas> ListaRespuestas = new List<Respuestas>();
 
     /* METODOS */
     public static List<Categorias> ObtenerCategorias()
@@ -33,6 +31,7 @@ public static class BD
 
     public static List<Preguntas> ObtenerPreguntas(int dificultad, int categoria)
     {
+        List<Preguntas> ListaPreguntas = new List<Preguntas>();
         /* 4 POSIBILIDADES:
             -1 -1 cualquier pregunta
             X -1 todas las preguntas de una dificultad sin importar la categoría
@@ -69,6 +68,7 @@ public static class BD
     }
     public static List<Respuestas> ObtenerRespuestas(List<Preguntas> ListaPreguntas)
     {
+        List<Respuestas> ListaRespuestas = new List<Respuestas>();
         List<Respuestas> RespuestasProvisionales = new List<Respuestas>();
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
