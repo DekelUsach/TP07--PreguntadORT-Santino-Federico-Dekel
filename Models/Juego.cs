@@ -37,6 +37,22 @@ public static class Juego
         }
         return preguntaRetornada;
     }
+    public static List<Respuestas> ObtenerProximasRespuestas(int idPregunta)
+    {
+        List<Respuestas> proximaRespuesta = new List<Respuestas>();
+
+        foreach (Respuestas resp in Respuestas)
+        {
+            if (resp.IdPregunta == idPregunta)
+            {
+                proximaRespuesta.Add(resp);
+            }
+        }
+
+    return proximaRespuesta;
+
+    }
+
 
     public static bool VerificarRespuesta(int idPregunta, int idRespuesta, string respuesta)
     // Recibe un id de pregunta y un id de respuesta, y retorna un booleano indicando si la respuesta fue correcta o incorrecta.
