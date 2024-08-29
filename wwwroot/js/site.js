@@ -1,4 +1,19 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const html = document.querySelector("#tema");
+const htmlColorMode = document.querySelector(".site-theme");
+html.setAttribute("data-bs-theme", localStorage.getItem("tema"));
 
-// Write your JavaScript code.
+document.getElementById("themeSelector").src = localStorage.getItem("img");
+
+htmlColorMode.addEventListener("click", () => {
+    if (html.getAttribute("data-bs-theme") === "dark") {
+        localStorage.setItem("tema", "light");
+        localStorage.setItem("img", "../Images/sol.png");
+        htmlColorMode.id = "boton-cambiar-tema-light";
+    } else {
+        localStorage.setItem("tema", "dark");
+        localStorage.setItem("img", "../Images/luna.png");
+        htmlColorMode.id = "boton-cambiar-tema-dark";
+    }
+    html.setAttribute("data-bs-theme", localStorage.getItem("tema"));
+    document.getElementById("themeSelector").src = localStorage.getItem("img");
+});
