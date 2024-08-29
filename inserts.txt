@@ -1,0 +1,169 @@
+-- Preguntas y respuestas para nivel Fácil (IdDificultad = 1)
+INSERT INTO [dbo].[Preguntas] ([IdPregunta], [IdCategoria], [IdDificultad], [Enunciado])
+VALUES 
+(1, 1, 1, '¿Quién pintó "La última cena"?'),
+(2, 1, 1, '¿Qué instrumento es típicamente utilizado en la música clásica india?'),
+(3, 1, 1, '¿Quién compuso "La flauta mágica"?'),
+(4, 1, 1, '¿Qué técnica de pintura es conocida por su uso de puntos de colores?'),
+(5, 1, 1, '¿Qué estilo de música es conocido por su improvisación y raíces afroamericanas?'),
+(6, 1, 1, '¿Cuál es el nombre del teatro más famoso de Londres, asociado a William Shakespeare?'),
+(7, 1, 1, '¿Quién es el autor de la obra de teatro "Romeo y Julieta"?'),
+(8, 1, 1, '¿Qué artista es famoso por cortar su propia oreja?'),
+(9, 1, 1, '¿Quién pintó "La noche estrellada"?'),
+(10, 1, 1, '¿Cuál es el nombre de la técnica de esculpir mármol usada por Miguel Ángel?');
+
+INSERT INTO [dbo].[Respuestas] ([IdRespuesta], [IdPregunta], [Opcion], [Contenido], [Correcta])
+VALUES 
+(1, 1, 1, 'Leonardo da Vinci', 1), (2, 1, 2, 'Miguel Ángel', 0), (3, 1, 3, 'Rafael', 0), (4, 1, 4, 'Donatello', 0),
+(5, 2, 1, 'Sitar', 1), (6, 2, 2, 'Violín', 0), (7, 2, 3, 'Flauta', 0), (8, 2, 4, 'Guitarra', 0),
+(9, 3, 1, 'Wolfgang Amadeus Mozart', 1), (10, 3, 2, 'Ludwig van Beethoven', 0), (11, 3, 3, 'Johann Sebastian Bach', 0), (12, 3, 4, 'Franz Schubert', 0),
+(13, 4, 1, 'Puntillismo', 1), (14, 4, 2, 'Cubismo', 0), (15, 4, 3, 'Impresionismo', 0), (16, 4, 4, 'Surrealismo', 0),
+(17, 5, 1, 'Jazz', 1), (18, 5, 2, 'Clásica', 0), (19, 5, 3, 'Rock', 0), (20, 5, 4, 'Pop', 0),
+(21, 6, 1, 'The Globe', 1), (22, 6, 2, 'The Royal Theatre', 0), (23, 6, 3, 'The Palladium', 0), (24, 6, 4, 'The Lyceum', 0),
+(25, 7, 1, 'William Shakespeare', 1), (26, 7, 2, 'Christopher Marlowe', 0), (27, 7, 3, 'Ben Jonson', 0), (28, 7, 4, 'John Webster', 0),
+(29, 8, 1, 'Vincent van Gogh', 1), (30, 8, 2, 'Pablo Picasso', 0), (31, 8, 3, 'Salvador Dalí', 0), (32, 8, 4, 'Henri Matisse', 0),
+(33, 9, 1, 'Vincent van Gogh', 1), (34, 9, 2, 'Claude Monet', 0), (35, 9, 3, 'Edgar Degas', 0), (36, 9, 4, 'Paul Cézanne', 0),
+(37, 10, 1, 'Talla directa', 1), (38, 10, 2, 'Modelado', 0), (39, 10, 3, 'Forja', 0), (40, 10, 4, 'Fundición', 0);
+
+-- Preguntas y respuestas para nivel Normal (IdDificultad = 2)
+INSERT INTO [dbo].[Preguntas] ([IdPregunta], [IdCategoria], [IdDificultad], [Enunciado])
+VALUES 
+(11, 1, 2, '¿Qué artista pintó la serie de obras conocida como "Los nenúfares"?'),
+(12, 1, 2, '¿Quién es conocido como el "Padre del Jazz"?'),
+(13, 1, 2, '¿En qué museo se encuentra "La Gioconda"?'),
+(14, 1, 2, '¿Qué arquitecto diseñó la Catedral de la Sagrada Familia en Barcelona?'),
+(15, 1, 2, '¿Cuál es la sinfonía más conocida de Beethoven, llamada "La Sinfonía del Destino"?'),
+(16, 1, 2, '¿Qué movimiento artístico es caracterizado por su representación de sueños y escenas irreales?'),
+(17, 1, 2, '¿Cuál es el nombre del famoso muralista mexicano que pintó "Sueño de una tarde dominical en la Alameda Central"?'),
+(18, 1, 2, '¿Qué compositor es conocido por la obra "El cascanueces"?'),
+(19, 1, 2, '¿Qué actriz interpretó a Cleopatra en la película de 1963?'),
+(20, 1, 2, '¿Quién es el escultor de "El pensador"?');
+
+INSERT INTO [dbo].[Respuestas] ([IdRespuesta], [IdPregunta], [Opcion], [Contenido], [Correcta])
+VALUES 
+(41, 11, 1, 'Claude Monet', 1), (42, 11, 2, 'Edgar Degas', 0), (43, 11, 3, 'Pierre-Auguste Renoir', 0), (44, 11, 4, 'Camille Pissarro', 0),
+(45, 12, 1, 'Louis Armstrong', 1), (46, 12, 2, 'Duke Ellington', 0), (47, 12, 3, 'Miles Davis', 0), (48, 12, 4, 'John Coltrane', 0),
+(49, 13, 1, 'Museo del Louvre', 1), (50, 13, 2, 'Museo del Prado', 0), (51, 13, 3, 'Galería Uffizi', 0), (52, 13, 4, 'Museo Metropolitano de Arte', 0),
+(53, 14, 1, 'Antoni Gaudí', 1), (54, 14, 2, 'Frank Gehry', 0), (55, 14, 3, 'Le Corbusier', 0), (56, 14, 4, 'Santiago Calatrava', 0),
+(57, 15, 1, 'Sinfonía No. 5', 1), (58, 15, 2, 'Sinfonía No. 9', 0), (59, 15, 3, 'Sinfonía No. 3', 0), (60, 15, 4, 'Sinfonía No. 7', 0),
+(61, 16, 1, 'Surrealismo', 1), (62, 16, 2, 'Cubismo', 0), (63, 16, 3, 'Expresionismo', 0), (64, 16, 4, 'Impresionismo', 0),
+(65, 17, 1, 'Diego Rivera', 1), (66, 17, 2, 'David Alfaro Siqueiros', 0), (67, 17, 3, 'José Clemente Orozco', 0), (68, 17, 4, 'Frida Kahlo', 0),
+(69, 18, 1, 'Piotr Ilich Chaikovski', 1), (70, 18, 2, 'Igor Stravinsky', 0), (71, 18, 3, 'Ludwig van Beethoven', 0), (72, 18, 4, 'Johann Strauss II', 0),
+(73, 19, 1, 'Elizabeth Taylor', 1), (74, 19, 2, 'Vivien Leigh', 0), (75, 19, 3, 'Audrey Hepburn', 0), (76, 19, 4, 'Marilyn Monroe', 0),
+(77, 20, 1, 'Auguste Rodin', 1), (78, 20, 2, 'Henry Moore', 0), (79, 20, 3, 'Constantin Brâncuși', 0), (80, 20, 4, 'Alberto Giacometti', 0);
+
+-- Preguntas y respuestas para nivel Difícil (IdDificultad = 3)
+INSERT INTO [dbo].[Preguntas] ([IdPregunta], [IdCategoria], [IdDificultad], [Enunciado])
+VALUES 
+(21, 1, 3, '¿Qué técnica utilizó Georges Seurat para crear "Una tarde de domingo en la isla de la Grande Jatte"?'),
+(22, 1, 3, '¿Quién compuso la ópera "Parsifal"?'),
+(23, 1, 3, '¿Qué escultor renacentista es conocido por su obra "David" en bronce?'),
+(24, 1, 3, '¿Qué término describe una pintura hecha sobre un yeso húmedo?'),
+(25, 1, 3, '¿Qué pintor es conocido por su uso del claroscuro y obras como "La lección de anatomía del Dr. Tulp"?'),
+(26, 1, 3, '¿Qué compositor es conocido por su obra "La consagración de la primavera"?'),
+(27, 1, 3, '¿Qué pintora mexicana es conocida por sus autorretratos y su obra "Las dos Fridas"?'),
+(28, 1, 3, '¿Cuál es la nacionalidad de Gustav Klimt, famoso por "El beso"?'),
+(29, 1, 3, '¿Quién escribió la obra de teatro "Esperando a Godot"?'),
+(30, 1, 3, '¿Qué movimiento artístico es caracterizado por la abstracción geométrica y el uso de colores primarios?');
+
+INSERT INTO [dbo].[Respuestas] ([IdRespuesta], [IdPregunta], [Opcion], [Contenido], [Correcta])
+VALUES 
+(81, 21, 1, 'Puntillismo', 1), (82, 21, 2, 'Cubismo', 0), (83, 21, 3, 'Impresionismo', 0), (84, 21, 4, 'Surrealismo', 0),
+(85, 22, 1, 'Richard Wagner', 1), (86, 22, 2, 'Giuseppe Verdi', 0), (87, 22, 3, 'Wolfgang Amadeus Mozart', 0), (88, 22, 4, 'Giacomo Puccini', 0),
+(89, 23, 1, 'Donatello', 1), (90, 23, 2, 'Michelangelo', 0), (91, 23, 3, 'Gian Lorenzo Bernini', 0), (92, 23, 4, 'Lorenzo Ghiberti', 0),
+(93, 24, 1, 'Fresco', 1), (94, 24, 2, 'Tempera', 0), (95, 24, 3, 'Acuarela', 0), (96, 24, 4, 'Óleo', 0),
+(97, 25, 1, 'Rembrandt', 1), (98, 25, 2, 'Jan Vermeer', 0), (99, 25, 3, 'Hieronymus Bosch', 0), (100, 25, 4, 'Frans Hals', 0),
+(101, 26, 1, 'Igor Stravinsky', 1), (102, 26, 2, 'Sergei Prokofiev', 0), (103, 26, 3, 'Maurice Ravel', 0), (104, 26, 4, 'Dmitri Shostakovich', 0),
+(105, 27, 1, 'Frida Kahlo', 1), (106, 27, 2, 'Remedios Varo', 0), (107, 27, 3, 'Leonora Carrington', 0), (108, 27, 4, 'Tina Modotti', 0),
+(109, 28, 1, 'Austriaco', 1), (110, 28, 2, 'Alemán', 0), (111, 28, 3, 'Suizo', 0), (112, 28, 4, 'Holandés', 0),
+(113, 29, 1, 'Samuel Beckett', 1), (114, 29, 2, 'Jean-Paul Sartre', 0), (115, 29, 3, 'Eugène Ionesco', 0), (116, 29, 4, 'Harold Pinter', 0),
+(117, 30, 1, 'De Stijl', 1), (118, 30, 2, 'Fauvismo', 0), (119, 30, 3, 'Dadaísmo', 0), (120, 30, 4, 'Surrealismo', 0);
+
+
+
+
+
+
+
+--Ciencia
+--CIENCIA
+-- Preguntas y respuestas para nivel Fácil (IdDificultad = 1)
+INSERT INTO [dbo].[Preguntas] ([IdPregunta], [IdCategoria], [IdDificultad], [Enunciado])
+VALUES 
+(31, 2, 1, '¿Cuál es el planeta más cercano al Sol?'),
+(32, 2, 1, '¿Qué gas es esencial para la respiración de los seres humanos?'),
+(33, 2, 1, '¿Qué elemento químico tiene el símbolo "O"?'),
+(34, 2, 1, '¿Cuál es la principal fuente de energía para la vida en la Tierra?'),
+(35, 2, 1, '¿Cómo se llama el proceso por el cual las plantas convierten la luz solar en energía?'),
+(36, 2, 1, '¿Qué órgano bombea sangre en el cuerpo humano?'),
+(37, 2, 1, '¿Quién es conocido como el "padre de la física moderna"?'),
+(38, 2, 1, '¿Qué instrumento se utiliza para observar objetos celestes lejanos?'),
+(39, 2, 1, '¿Qué tipo de animal es un delfín?'),
+(40, 2, 1, '¿Cuántos planetas hay en el sistema solar?');
+
+INSERT INTO [dbo].[Respuestas] ([IdRespuesta], [IdPregunta], [Opcion], [Contenido], [Correcta])
+VALUES 
+(121, 31, 1, 'Mercurio', 1), (122, 31, 2, 'Venus', 0), (123, 31, 3, 'Marte', 0), (124, 31, 4, 'Júpiter', 0),
+(125, 32, 1, 'Oxígeno', 1), (126, 32, 2, 'Nitrógeno', 0), (127, 32, 3, 'Dióxido de carbono', 0), (128, 32, 4, 'Hidrógeno', 0),
+(129, 33, 1, 'Oxígeno', 1), (130, 33, 2, 'Oro', 0), (131, 33, 3, 'Osmio', 0), (132, 33, 4, 'Oxalato', 0),
+(133, 34, 1, 'El Sol', 1), (134, 34, 2, 'El viento', 0), (135, 34, 3, 'El agua', 0), (136, 34, 4, 'El petróleo', 0),
+(137, 35, 1, 'Fotosíntesis', 1), (138, 35, 2, 'Respiración', 0), (139, 35, 3, 'Digestión', 0), (140, 35, 4, 'Fermentación', 0),
+(141, 36, 1, 'Corazón', 1), (142, 36, 2, 'Pulmón', 0), (143, 36, 3, 'Hígado', 0), (144, 36, 4, 'Cerebro', 0),
+(145, 37, 1, 'Albert Einstein', 1), (146, 37, 2, 'Isaac Newton', 0), (147, 37, 3, 'Galileo Galilei', 0), (148, 37, 4, 'Nikola Tesla', 0),
+(149, 38, 1, 'Telescopio', 1), (150, 38, 2, 'Microscopio', 0), (151, 38, 3, 'Periscopio', 0), (152, 38, 4, 'Estetoscopio', 0),
+(153, 39, 1, 'Mamífero', 1), (154, 39, 2, 'Reptil', 0), (155, 39, 3, 'Ave', 0), (156, 39, 4, 'Anfibio', 0),
+(157, 40, 1, '8', 1), (158, 40, 2, '9', 0), (159, 40, 3, '7', 0), (160, 40, 4, '10', 0);
+
+-- Preguntas y respuestas para nivel Normal (IdDificultad = 2)
+INSERT INTO [dbo].[Preguntas] ([IdPregunta], [IdCategoria], [IdDificultad], [Enunciado])
+VALUES 
+(41, 2, 2, '¿Cuál es la unidad de medida de la corriente eléctrica?'),
+(42, 2, 2, '¿Quién formuló las leyes del movimiento?'),
+(43, 2, 2, '¿Cuál es la fórmula química del agua?'),
+(44, 2, 2, '¿Qué científico descubrió la penicilina?'),
+(45, 2, 2, '¿Cómo se llama el primer satélite artificial lanzado al espacio?'),
+(46, 2, 2, '¿Qué es el ADN?'),
+(47, 2, 2, '¿Qué teoría sostiene que el universo se expandió a partir de un punto inicial extremadamente denso y caliente?'),
+(48, 2, 2, '¿Qué planeta es conocido como el "planeta rojo"?'),
+(49, 2, 2, '¿Qué gas es el más abundante en la atmósfera terrestre?'),
+(50, 2, 2, '¿Quién es conocido por su teoría de la evolución por selección natural?');
+
+INSERT INTO [dbo].[Respuestas] ([IdRespuesta], [IdPregunta], [Opcion], [Contenido], [Correcta])
+VALUES 
+(161, 41, 1, 'Amperio', 1), (162, 41, 2, 'Voltio', 0), (163, 41, 3, 'Ohmio', 0), (164, 41, 4, 'Watt', 0),
+(165, 42, 1, 'Isaac Newton', 1), (166, 42, 2, 'Albert Einstein', 0), (167, 42, 3, 'Galileo Galilei', 0), (168, 42, 4, 'James Clerk Maxwell', 0),
+(169, 43, 1, 'H2O', 1), (170, 43, 2, 'CO2', 0), (171, 43, 3, 'O2', 0), (172, 43, 4, 'NaCl', 0),
+(173, 44, 1, 'Alexander Fleming', 1), (174, 44, 2, 'Marie Curie', 0), (175, 44, 3, 'Louis Pasteur', 0), (176, 44, 4, 'Gregor Mendel', 0),
+(177, 45, 1, 'Sputnik 1', 1), (178, 45, 2, 'Apollo 11', 0), (179, 45, 3, 'Voyager 1', 0), (180, 45, 4, 'Hubble', 0),
+(181, 46, 1, 'Ácido desoxirribonucleico', 1), (182, 46, 2, 'Adenina', 0), (183, 46, 3, 'Ribosoma', 0), (184, 46, 4, 'Cloroplasto', 0),
+(185, 47, 1, 'Teoría del Big Bang', 1), (186, 47, 2, 'Teoría de la Relatividad', 0), (187, 47, 3, 'Teoría de Cuerdas', 0), (188, 47, 4, 'Teoría de la Evolución', 0),
+(189, 48, 1, 'Marte', 1), (190, 48, 2, 'Júpiter', 0), (191, 48, 3, 'Saturno', 0), (192, 48, 4, 'Urano', 0),
+(193, 49, 1, 'Nitrógeno', 1), (194, 49, 2, 'Oxígeno', 0), (195, 49, 3, 'Dióxido de carbono', 0), (196, 49, 4, 'Argón', 0),
+(197, 50, 1, 'Charles Darwin', 1), (198, 50, 2, 'Gregor Mendel', 0), (199, 50, 3, 'Alfred Russel Wallace', 0), (200, 50, 4, 'Jean-Baptiste Lamarck', 0);
+
+-- Preguntas y respuestas para nivel Difícil (IdDificultad = 3)
+INSERT INTO [dbo].[Preguntas] ([IdPregunta], [IdCategoria], [IdDificultad], [Enunciado])
+VALUES 
+(51, 2, 3, '¿Qué científico propuso la teoría heliocéntrica del sistema solar?'),
+(52, 2, 3, '¿Qué físico es conocido por su trabajo en la mecánica cuántica y por desarrollar la ecuación que lleva su nombre?'),
+(53, 2, 3, '¿Cuál es la constante de Planck?'),
+(54, 2, 3, '¿Qué es el bosón de Higgs?'),
+(55, 2, 3, '¿Qué rama de la biología estudia los ecosistemas?'),
+(56, 2, 3, '¿Qué teoría científica explica la gravedad como una curvatura del espacio-tiempo?'),
+(57, 2, 3, '¿Qué científico introdujo la teoría de la selección natural en "El origen de las especies"?'),
+(58, 2, 3, '¿Cuál es el número de elementos actualmente en la tabla periódica?'),
+(59, 2, 3, '¿Qué es una supernova?'),
+(60, 2, 3, '¿Quién formuló la teoría de la relatividad?');
+
+INSERT INTO [dbo].[Respuestas] ([IdRespuesta], [IdPregunta], [Opcion], [Contenido], [Correcta])
+VALUES 
+(201, 51, 1, 'Nicolás Copérnico', 1), (202, 51, 2, 'Johannes Kepler', 0), (203, 51, 3, 'Galileo Galilei', 0), (204, 51, 4, 'Isaac Newton', 0),
+(205, 52, 1, 'Erwin Schrödinger', 1), (206, 52, 2, 'Werner Heisenberg', 0), (207, 52, 3, 'Max Planck', 0), (208, 52, 4, 'Albert Einstein', 0),
+(209, 53, 1, '6.626 x 10^-34 J·s', 1), (210, 53, 2, '3.14159', 0), (211, 53, 3, '9.81 m/s^2', 0), (212, 53, 4, '1.602 x 10^-19 C', 0),
+(213, 54, 1, 'Una partícula elemental responsable de otorgar masa a otras partículas', 1), (214, 54, 2, 'Una estrella enana', 0), (215, 54, 3, 'Una molécula de agua', 0), (216, 54, 4, 'Un planeta enano', 0),
+(217, 55, 1, 'Ecología', 1), (218, 55, 2, 'Botánica', 0), (219, 55, 3, 'Zoología', 0), (220, 55, 4, 'Genética', 0),
+(221, 56, 1, 'Teoría de la relatividad general', 1), (222, 56, 2, 'Teoría de la relatividad especial', 0), (223, 56, 3, 'Teoría del Big Bang', 0), (224, 56, 4, 'Teoría de cuerdas', 0),
+(225, 57, 1, 'Charles Darwin', 1), (226, 57, 2, 'Gregor Mendel', 0), (227, 57, 3, 'Alfred Russel Wallace', 0), (228, 57, 4, 'Jean-Baptiste Lamarck', 0),
+(229, 58, 1, '118', 1), (230, 58, 2, '114', 0), (231, 58, 3, '120', 0), (232, 58, 4, '110', 0),
+(233, 59, 1, 'Una explosión de una estrella masiva al final de su ciclo de vida', 1), (234, 59, 2, 'Un agujero negro', 0), (235, 59, 3, 'Una galaxia en colisión', 0), (236, 59, 4, 'Un planeta en formación', 0),
+(237, 60, 1, 'Albert Einstein', 1), (238, 60, 2, 'Isaac Newton', 0), (239, 60, 3, 'Niels Bohr', 0), (240, 60, 4, 'Max Planck', 0);
