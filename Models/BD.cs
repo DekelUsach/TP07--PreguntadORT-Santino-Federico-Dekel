@@ -38,43 +38,32 @@ public static class BD
             -1  X todas las preguntas de una categoría sin importar dificultad
             X  X todas las preguntas de una cierta dificultad y una cierta categoría
         */
-
-        if (dificultad == -1 && categoria == -1) //todas las preguntas sin importar dificultad
+        using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            using (SqlConnection db = new SqlConnection(_connectionString))
+            if (dificultad == -1 && categoria == -1) //todas las preguntas sin importar dificultad
             {
                 string sql = "SELECT * FROM Preguntas";
                 ListaPreguntas = db.Query<Preguntas>(sql).ToList();
+                return ListaPreguntas;
             }
-            return ListaPreguntas;
-        }
-        else if (dificultad != -1 && categoria == -1)
-        {
-            using (SqlConnection db = new SqlConnection(_connectionString))
-            {
+            else if (dificultad != -1 && categoria == -1)
+            { 
                 string sql = "SELECT * FROM Preguntas WHERE IdDificultad = @pIdDificultad";
                 ListaPreguntas = db.Query<Preguntas>(sql, new { pIdDificultad = dificultad }).ToList();
+                return ListaPreguntas;
             }
-            return ListaPreguntas;
-
-        }
-        else if (dificultad == -1 && categoria != -1)
-        {
-            using (SqlConnection db = new SqlConnection(_connectionString))
+            else if (dificultad == -1 && categoria != -1)
             {
                 string sql = "SELECT * FROM Preguntas WHERE IdCategoria = @pIdCategoria";
                 ListaPreguntas = db.Query<Preguntas>(sql, new { pIdCategoria= categoria }).ToList();
+                return ListaPreguntas;
             }
-            return ListaPreguntas;
-        }
-        else
-        {
-            using (SqlConnection db = new SqlConnection(_connectionString))
+            else
             {
                 string sql = "SELECT * FROM Preguntas WHERE IdCategoria = @pIdCategoria AND IdDificultad = @pIdDificultad";
                 ListaPreguntas = db.Query<Preguntas>(sql, new { pIdCategoria = categoria }).ToList();
+                return ListaPreguntas;
             }
-            return ListaPreguntas;
         }
     }
     public static List<Respuestas> ObtenerRespuestas(List<Preguntas> ListaPreguntas)
