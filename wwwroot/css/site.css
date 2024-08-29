@@ -72,4 +72,54 @@ body {
   max-width: 100%;
   padding: 0;
   }
+  }html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
   }
+}
+
+
+@media (min-width: 1200px)
+{
+  .container, .container-lg, .container-md, .container-sm, .container-xl
+  {
+    max-width: 100%;
+    padding: 0;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/* INDEX */
+
+.mainMenu
+{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+
+.botonMainMenu /* SET FOR REMOVAL */
+{
+  position: absolute;
+
+  height: 10vh;
+  width: 30.51vw;
+  top: 73.9vh;
+  left: 34.7vw;
+}
