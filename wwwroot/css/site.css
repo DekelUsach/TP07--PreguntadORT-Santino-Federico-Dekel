@@ -7,10 +7,8 @@ html {
     font-size: 16px;
   }
 }
+ 
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
 
 html {
   position: relative;
@@ -20,3 +18,58 @@ html {
 body {
   margin-bottom: 60px;
 }
+/*Boton Cambiar tema*/
+#boton-cambiar-tema-light{
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 3%;
+  height: 5%;
+  border-radius: 10px;
+  margin-right: 20px;
+  margin-top: 15px;
+  
+}
+#boton-cambiar-tema:hover{
+ border: solid 1px black; 
+}
+#boton-cambiar-tema-light img{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+}
+#boton-cambiar-tema-light:hover{
+  background-color: #28242c ;
+  border: solid 1px black;
+}
+#boton-cambiar-tema-dark{
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 3%;
+  height: 5%;
+  border-radius: 10px;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+#boton-cambiar-tema-dark:hover{
+  background-color: white;
+  border: solid 1px white;
+}
+#boton-cambiar-tema-dark img{
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: 100%;
+}
+.pb-3{
+  display: flex;
+  justify-content: end;
+}
+@media (min-width: 1200px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl {
+  max-width: 100%;
+  padding: 0;
+  }
+  }
