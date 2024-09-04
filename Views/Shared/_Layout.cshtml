@@ -9,14 +9,20 @@
     <link rel="stylesheet" href="~/TP07__PreguntadORT_Santino_Federico_Dekel.styles.css" asp-append-version="true" />
 </head>
 <body>
-
     <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img src="~/images/titleHeader.png" width="30" height="30" alt="">
+                </a>
+            </nav>
+            <button type="button" class="btn site-theme" id= "boton-cambiar-tema-light"><img src="../Images/sol.png" alt="Tema" id="themeSelector"></button>
+        </nav>
         <main role="main" class="pb-3">
-                <button type="button" class="btn site-theme" id= "boton-cambiar-tema-light"><img src="../Images/sol.png" alt="Tema" id="themeSelector"></button>
             @RenderBody()
         </main>
     </div>
-
     
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
