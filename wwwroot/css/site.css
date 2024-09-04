@@ -7,8 +7,6 @@ html {
     font-size: 16px;
   }
 }
- 
-
 
 html {
   position: relative;
@@ -19,7 +17,8 @@ body {
   margin-bottom: 60px;
 }
 /*Boton Cambiar tema*/
-#boton-cambiar-tema-light{
+#boton-cambiar-tema-light
+{
   margin: 0;
   border: 0;
   padding: 0;
@@ -28,7 +27,6 @@ body {
   border-radius: 10px;
   margin-right: 20px;
   margin-top: 15px;
-  
 }
 #boton-cambiar-tema:hover{
  border: solid 1px black; 
@@ -43,7 +41,8 @@ body {
   background-color: #28242c ;
   border: solid 1px black;
 }
-#boton-cambiar-tema-dark{
+#boton-cambiar-tema-dark
+{
   margin: 0;
   border: 0;
   padding: 0;
@@ -112,6 +111,7 @@ body {
   position: absolute;
   height: 100vh;
   width: 100vw;
+  z-index: -1;
 }
 
 .botonMainMenu /* SET FOR REMOVAL */
