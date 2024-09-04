@@ -1,6 +1,17 @@
 <section class="contenedor">
     <form action='@Url.Action("Comenzar","Home")' method="get" class="configurar">
-        <h2>Ingrese la <strong>Dificultad</strong>(Si no quiere ninguna en particular, ingrese -1)</h2>
-        
+        <p class="mensaje">Ingrese la <strong>Dificultad</strong>(Si no quiere ninguna en particular, ingrese -1)</p>
+        <div class="input_container">
+        @{
+            foreach(Dificultades dif in ViewBag.Dificultad)
+            {
+                <div>
+                    <input type="radio" value="@dif.IdDificultad" class="dif_option">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS4fSb3suK8TZRJ37I4HC43hRTIyPdO0yg8w&s" class="dif_img">
+                </div>
+            }
+        }
+        </div>
+        <input type="submit" value="JUGAR">
     </form>
 </section>
