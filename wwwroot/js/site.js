@@ -19,23 +19,45 @@ htmlColorMode.addEventListener("click", () => {
 });
 
 //wheel
-let selectedCategory;
+const ruleta = document.querySelector("#ruleta");
+ruleta.addEventListener("click",girar);
+dinero = 50;
+function girar(){
+    
+    	let rand = Math.random()*7200; 
+        calcular(rand);
+}
 
-function spinWheel() {
-    const wheel = document.querySelector('.wheel');
-    const result = document.getElementById('result');
-   
-    const degrees = Math.floor(Math.random() * 360) + 720;
-    wheel.style.transform = `rotate(${degrees}deg)`;
-   
-    setTimeout(() => {
-        const normalizedDegrees = degrees % 360;
-        const sectionDegrees = 360 / 4;
-        const selectedIndex = Math.floor((normalizedDegrees + sectionDegrees / 2) / sectionDegrees) % 4;
-        const categories = ['Azul Cielo', 'Azul Acero', 'Azul Dodger', 'Azul Celeste'];
-        selectedCategory = categories[selectedIndex];
-       
-        result.textContent = `Categoría seleccionada: ${selectedCategory}`;
-        console.log("Categoría seleccionada:", selectedCategory);
-    }, 1600);
+
+function calcular(rand){
+    valor = rand / 360;
+    valor = (valor - parseInt(valor.toString().split(".")[0])) * 360;
+    ruleta.style.transform = "rotate("+rand+"deg)";
+    setTimeout(()=>{
+    switch(true){
+    	case valor > 0 && valor <= 45:
+    	    alert("Has ganado y te has llevado 500 ");
+    	    break;
+    	case valor > 45 && valor <= 90:
+    	    alert("Has ganado 20 USD");
+    	    break;
+        case valor > 90 && valor <= 135:
+            alert("has sumado 5 puntos");
+            break; 
+        case valor > 135 && valor <= 180:
+            alert("has sumado 50 puntos");
+            break;  
+        case valor > 180 && valor <= 225:
+            alert("has sumado 100 puntos");
+            break;
+        case valor > 225 && valor <= 270:
+            alert("No has sumado puntos");
+            break;
+        case valor > 270 && valor <= 315:
+            alert("has sumado 70 puntos");
+            break;
+        case valor > 315 && valor <= 360:
+            alert("Has sumado 10 puntos");
+            break;
+    }},6000);
 }
