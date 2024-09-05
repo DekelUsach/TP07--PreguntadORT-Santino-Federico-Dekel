@@ -4,7 +4,7 @@ using Dapper;
 public static class BD
 {
     /* ATRIBUTOS */
-    private static string _connectionString = @"Server=A-PHZ2-CIDI-11;Database=TriviaDB;Trusted_Connection=True;";
+    private static string _connectionString = @"Server=localhost\SQLEXPRESS;Database=TriviaDB;Trusted_Connection=True;";
     public static List<Categorias> ListaCategorias = new List<Categorias>();
     public static List<Dificultades> ListaDificultades = new List<Dificultades>();
 
@@ -17,7 +17,7 @@ public static class BD
             ListaCategorias = db.Query<Categorias>(sql).ToList();
         }
         return ListaCategorias;
-    }
+    } 
 
     public static List<Dificultades> ObtenerDificultades()
     {
