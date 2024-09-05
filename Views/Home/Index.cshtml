@@ -1,7 +1,7 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<img src="~/images/mainMenu.png" class="mainMenu">
-
-<a href='@Url.Action("ConfigurarJuego", "Home")' class="botonMainMenu" tabindex="-1"> <!-- CAMBIAR POR ALGO ORIGINAL -->
+﻿<section class="contenedor">
+    <section class="caja">
+        <div class="playButton_container">
+            <a href='@Url.Action("ConfigurarJuego", "Home")' class="playButton">JUGAR</a>
+        </div>
+    </section>
+</section>
