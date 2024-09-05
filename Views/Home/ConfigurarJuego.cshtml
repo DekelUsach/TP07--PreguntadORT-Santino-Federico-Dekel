@@ -31,9 +31,96 @@
         </div>
         <input type="submit" value="JUGAR">
     </form>
+<<<<<<< HEAD
     <section class="ruletaaaa">
         <div class="vara"></div>
             <img src="../Images/ruleta.png" class = "img-ruleta" id="ruleta">
         </div>
     </section>
 </section>      
+=======
+ <div>
+	<div class="vara"></div>
+	<img src="../Images/imagen.png" class = "img-ruleta" id="ruleta">
+</div>
+<a href= '@Url.Action("Rueda","Home")'>ashvdlisabvalisdbvalsidyv</a>
+</section>      
+<script>
+
+//wheel
+const ruleta = document.querySelector("#ruleta");
+ruleta.addEventListener("click", girar);
+let dinero = 50;
+
+function girar() {
+    let rand = Math.random() * 7200;
+    calcular(rand);
+}
+
+function calcular(rand) {
+    let categoria = null;
+    let valor = rand / 360;
+    valor = (valor - parseInt(valor.toString().split(".")[0])) * 360;
+    ruleta.style.transform = "rotate(" + rand + "deg)";
+    
+    setTimeout(() => {
+        switch (true) {
+            case valor > 0 && valor <= 45:
+                //win
+                categoria = "1";
+                alert("Has ganado y te has llevado 500");
+                break;
+            case valor > 45 && valor <= 90:
+                //20
+                categoria = "2";
+                alert("Has ganado 20 USD");
+                break;
+            case valor > 90 && valor <= 135:
+                //5
+                categoria = "3";
+                alert("Has sumado 5 puntos");
+                break;
+            case valor > 135 && valor <= 180:
+                //50
+                categoria = "4";
+                alert("Has sumado 50 puntos");
+                break;
+            case valor > 180 && valor <= 225:
+                //100
+                categoria = "5";
+                alert("Has sumado 100 puntos");
+                break;
+            case valor > 225 && valor <= 270:
+                //nada
+                categoria = "6";
+                alert("No has sumado puntos");
+                break;
+            case valor > 270 && valor <= 315:
+                //70
+                categoria = "7";
+                alert("Has sumado 70 puntos");
+                break;
+            case valor > 315 && valor <= 360:
+                //10
+                categoria = "-1";
+                alert("Has sumado 10 puntos");
+                break;
+        }
+        
+        // Enviar la categoría al servidor
+        $.ajax({
+            url: '@Url.Action("Rueda", "Home")',
+            type: 'GET',
+            data: { categoria: categoria }, // Enviando la categoría
+            dataType: 'json',
+            success: function(response) {
+                // Manejar la respuesta del servidor aquí
+                console.log(response);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error en la solicitud AJAX:', status, error);
+            }
+        });
+    }, 6000);
+}
+>>>>>>> 45d35023bc0067da37e3f4ff846f25e03cb22138
