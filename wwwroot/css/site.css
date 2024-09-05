@@ -1,3 +1,7 @@
+* {
+  font-family: "Josefin Sans", "sans-serif";
+}
+
 html {
   font-size: 14px;
 }
@@ -15,7 +19,13 @@ html {
 
 body {
   margin-bottom: 60px;
+  background-color: #381272;
 }
+
+header {
+  background-color: #280e50;
+}
+
 /*Boton Cambiar tema*/
 #boton-cambiar-tema-light
 {
@@ -100,28 +110,53 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+.contenedor{ 
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 /* INDEX */
 
-.mainMenu
-{
-  position: absolute;
-  height: 100vh;
-  width: 100vw;
-  z-index: -1;
+/*#321066*/
+
+.caja {
+  width: 60vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #321066;
 }
 
-.botonMainMenu /* SET FOR REMOVAL */
-{
-  position: absolute;
+.playButton_container {
+  width: 620px;
+  height: 170px;
+  background-color: #fff;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  height: 10vh;
-  width: 30.51vw;
-  top: 73.9vh;
-  left: 34.7vw;
+.playButton
+{
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  width: 600px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
+  border-radius: 15px;
+  background-color: #333333;
+  transition: 0.3s;
+}
+
+.playButton:hover {
+  background-color: #222222;
 }
 
 /*ConfigurarJuego*/
