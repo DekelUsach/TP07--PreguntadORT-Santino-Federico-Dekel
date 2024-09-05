@@ -20,23 +20,34 @@ public class HomeController : Controller
 
     public IActionResult ConfigurarJuego()
     {
+
         Juego.InicializarJuego();
         ViewBag.Categorias = BD.ObtenerCategorias();
         ViewBag.Dificultad = BD.ObtenerDificultades();
         return View();
     }
-    
+    [HttpGet]
+    public IActionResult Rueda(string categoria)
+    {
+        
+
+        var data = new { Success = true, Categoria = categoria }; // Ejemplo de datos
+        return Json(data); // Devolver datos en formato JSON
+    }
+
     public IActionResult Comenzar(string username, int dificultad, int categoria)
     {
         Juego.CargarPartida(username, dificultad, categoria);
 
         if (Juego.Preguntas != null)
         {
-            return View("Jugar");   
+            return View("Jugar");
         }
-        else{
+        else
+        {
             return View("ConfigurarJuego");
         }
+
     }
 
     public IActionResult Jugar()
