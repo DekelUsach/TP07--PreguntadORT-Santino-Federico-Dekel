@@ -1,6 +1,81 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
 
+<div>
+    <div class="vara"></div>
+    <img src="../Images/ruleta.png" class="img-ruleta" id="ruleta">
+</div>
+<script>
+    //wheel
+    const ruleta = document.querySelector("#ruleta");
+    ruleta.addEventListener("click", girar);
+    let dinero = 50;
+    let categoria;
+    function girar() {
+        let rand = Math.random() * 7200;
+        calcular(rand);
+    }
+
+    function calcular(rand) {
+    let valor = rand / 360;
+    valor = (valor - parseInt(valor.toString().split(".")[0])) * 360;
+    ruleta.style.transform = "rotate(" + rand + "deg)";
+
+    setTimeout(() => {
+        switch (true) {
+            case valor > 0 && valor <= 45:
+                categoria = "1";
+                alert("Has ganado y te has llevado 500");
+                break;
+            case valor > 45 && valor <= 90:
+                categoria = "2";
+                alert("Has ganado 20 USD");
+                break;
+            case valor > 90 && valor <= 135:
+                categoria = "3";
+                alert("Has sumado 5 puntos");
+                break;
+            case valor > 135 && valor <= 180:
+                categoria = "4";
+                alert("Has sumado 50 puntos");
+                break;
+            case valor > 180 && valor <= 225:
+                categoria = "5";
+                alert("Has sumado 100 puntos");
+                break;
+            case valor > 225 && valor <= 270:
+                categoria = "6";
+                alert("No has sumado puntos");
+                break;
+            case valor > 270 && valor <= 315:
+                categoria = "7";
+                alert("Has sumado 70 puntos");
+                break;
+            case valor > 315 && valor <= 360:
+                categoria = "-1";
+                alert("Has sumado 10 puntos");
+                break;
+        }
+
+        // Enviar el valor de la categoría al controlador
+        fetch('/Home/GuardarCategoria', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ categoria: categoria })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Respuesta del servidor:', data);
+        })
+        .catch((error) => {
+            console.error('Error al enviar la categoría:', error);
+        });
+
+    }, 6000);
+}
+
+</script>
