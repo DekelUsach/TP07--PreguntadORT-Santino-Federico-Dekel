@@ -27,9 +27,20 @@ public class HomeController : Controller
         return View();
     }
     [HttpGet]
-    public IActionResult Rueda(string categoria)
+    public IActionResult Rueda(int categoria)
     {
-        
+        Preguntas pregunta = Juego.ObtenerProximaPreguntaCategoria(categoria);
+        List<Respuestas> respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
+        if (pregunta != null)
+        {
+            ViewBag.pregunta = pregunta;
+            ViewBag.respuestas = respuestas;
+            return View("Juego");
+        }
+        else
+        {
+            return View("Fin");
+        }
 
         var data = new { Success = true, Categoria = categoria }; // Ejemplo de datos
         return Json(data); // Devolver datos en formato JSON
@@ -39,7 +50,11 @@ public class HomeController : Controller
     {
         Juego.CargarPartida(username, dificultad, categoria);
 
-        if (Juego.Preguntas != null)
+        if (Juego.Preguntas != null && categoria == -1)
+        {
+            return View("Rueda");
+        }
+        else if (Juego.Preguntas != null)
         {
             return View("Jugar");
         }
@@ -53,10 +68,11 @@ public class HomeController : Controller
     public IActionResult Jugar()
     {
         Preguntas pregunta = Juego.ObtenerProximaPregunta();
-
+        List<Respuestas> respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
         if (pregunta != null)
         {
             ViewBag.pregunta = pregunta;
+            ViewBag.respuestas = respuestas;
             return View("Juego");
         }
         else
