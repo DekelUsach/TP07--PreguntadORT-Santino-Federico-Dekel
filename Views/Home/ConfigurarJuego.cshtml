@@ -1,35 +1,32 @@
 <section class="contenedor">
     <form action='@Url.Action("Comenzar","Home")' method="get" class="configurar">
+    <p class="mensaje">Ingrese la <strong>Dificultad</strong></p>
         <div class="input_container_dif">
-            <p class="mensaje">Ingrese la <strong>Dificultad</strong>(Si no quiere ninguna en particular, ingrese -1)
             </p>
             @{
                 foreach (Dificultades dif in ViewBag.Dificultad)
                 {
-                    <div>
-                        <input name="dificultad" id='d@dif.IdDificultad' type="radio" value="@dif.IdDificultad"
-                            class="dif_option">
-                        <label class="dif_label" for="@dif.IdDificultad"><img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS4fSb3suK8TZRJ37I4HC43hRTIyPdO0yg8w&s"
-                                class="dif_img"></label>
+                    <div class="dif_option">
+                        <input name="dificultad" id='@dif.IdDificultad' type="radio" value="@dif.IdDificultad" class="dif_input">
+                        <label class="dif_label" for="@dif.IdDificultad">@dif.Nombre</label>
                     </div>
                 }
             }
         </div>
+        <!--
         <div class="input_container_cat">
-            <p class="mensaje">Ingrese la <strong>Categoria</strong>(Si no quiere ninguna en particular, ingrese -1)</p>
+            <p class="mensaje">Ingrese la <strong>Categoria</strong></p>
             @{
                 foreach (Categorias cat in ViewBag.Categorias)
                 {
                     <div>
-                        <input name="categoria" id='c@cat.IdCategoria' type="radio" value='c@cat.IdCategoria'
-                            class="cat_option">
+                        <input name="categoria" id='c@cat.IdCategoria' type="radio" value='c@cat.IdCategoria' class="cat_option">
                         <label class="cat_label" for="@cat.IdCategoria"><img src="~/Images/@cat.Foto" class="cat_img"></label>
-
                     </div>
                 }
             }
         </div>
+        -->
         <div class="input_container_username">
             <label>Ingrese su nombre de usuario:</label>
             <input type="text">

@@ -21,6 +21,7 @@ public static class Juego
     {
         Preguntas = BD.ObtenerPreguntas(dificultad, categoria);
         Respuestas = BD.ObtenerRespuestas(Preguntas);
+        Username = username;
     }
 
     public static Preguntas ObtenerProximaPregunta()
@@ -34,6 +35,26 @@ public static class Juego
             int randNum = rnd.Next(0, Preguntas.Count());
 
             preguntaRetornada = Preguntas[randNum];
+        }
+        return preguntaRetornada;
+    }
+
+    public static Preguntas ObtenerProximaPreguntaCategoria(int categoria)
+    {
+        Preguntas? preguntaRetornada = null;
+        List<Preguntas> PreguntasCategoria = new List<Preguntas>();
+        if(Preguntas != null)
+        {
+            foreach(Preguntas pregunta in Preguntas)
+            {
+                if(pregunta.IdCategoria == categoria)
+                {
+                    PreguntasCategoria.Add(pregunta);
+                }
+                Random rnd = new();
+                int randNum = rnd.Next(0, PreguntasCategoria.Count());
+                preguntaRetornada = PreguntasCategoria[randNum];
+            }
         }
         return preguntaRetornada;
     }
