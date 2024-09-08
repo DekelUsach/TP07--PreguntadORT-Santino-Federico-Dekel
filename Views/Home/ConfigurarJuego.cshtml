@@ -1,116 +1,34 @@
 <section class="contenedor">
     <form action='@Url.Action("Comenzar","Home")' method="get" class="configurar">
-    <p class="mensaje">Ingrese la <strong>Dificultad</strong></p>
         <div class="input_container_dif">
-            </p>
+        <p class="mensaje">Ingrese la <strong>Dificultad</strong></p>
             @{
                 foreach (Dificultades dif in ViewBag.Dificultad)
                 {
                     <div class="dif_option">
-                        <input name="dificultad" id='@dif.IdDificultad' type="radio" value="@dif.IdDificultad" class="dif_input">
-                        <label class="dif_label" for="@dif.IdDificultad">@dif.Nombre</label>
+                        <input name="dificultad" required id='dif_@dif.IdDificultad' type="radio" value="@dif.IdDificultad" class="dif_input">
+                        <label class="dif_label" for="dif_@dif.IdDificultad">@dif.Nombre</label>
                     </div>
                 }
             }
         </div>
-        <!--
         <div class="input_container_cat">
-            <p class="mensaje">Ingrese la <strong>Categoria</strong></p>
+        <p class="mensaje">Ingrese la <strong>Categoria</strong></p>
             @{
                 foreach (Categorias cat in ViewBag.Categorias)
                 {
-                    <div>
-                        <input name="categoria" id='c@cat.IdCategoria' type="radio" value='c@cat.IdCategoria' class="cat_option">
-                        <label class="cat_label" for="@cat.IdCategoria"><img src="~/Images/@cat.Foto" class="cat_img"></label>
+                    <div class="dif_option">
+                        <input name="categoria" required id='cat_@cat.IdCategoria' type="radio" value="@cat.IdCategoria" class="dif_input">
+                        <label class="dif_label" for="cat_@cat.IdCategoria">@cat.Nombre</label>
                     </div>
                 }
             }
         </div>
-        -->
         <div class="input_container_username">
-            <label>Ingrese su nombre de usuario:</label>
-            <input type="text">
+            <p class="mensaje">Ingrese su <strong>Nombre de Usuario</strong></p>
+            <input type="text" required placeholder="Username" class="username_input">
         </div>
-        <input type="submit" value="JUGAR">
+        <input type="submit" value="JUGAR" class="jugar">
     </form>
 
-    <a href='@Url.Action("Comenzar","Home")'>ashvdlisabvalisdbvalsidyasdljsabndkljasbdkjlbdv</a>
 </section>
-<script>
-    //wheel
-    const ruleta = document.querySelector("#ruleta");
-    ruleta.addEventListener("click", girar);
-    let dinero = 50;
-
-    function girar() {
-        let rand = Math.random() * 7200;
-        calcular(rand);
-    }
-
-    function calcular(rand) {
-        let categoria = null;
-        let valor = rand / 360;
-        valor = (valor - parseInt(valor.toString().split(".")[0])) * 360;
-        ruleta.style.transform = "rotate(" + rand + "deg)";
-
-        setTimeout(() => {
-            switch (true) {
-                case valor > 0 && valor <= 45:
-                    //win
-                    categoria = "1";
-                    alert("Has ganado y te has llevado 500");
-                    break;
-                case valor > 45 && valor <= 90:
-                    //20
-                    categoria = "2";
-                    alert("Has ganado 20 USD");
-                    break;
-                case valor > 90 && valor <= 135:
-                    //5
-                    categoria = "3";
-                    alert("Has sumado 5 puntos");
-                    break;
-                case valor > 135 && valor <= 180:
-                    //50
-                    categoria = "4";
-                    alert("Has sumado 50 puntos");
-                    break;
-                case valor > 180 && valor <= 225:
-                    //100
-                    categoria = "5";
-                    alert("Has sumado 100 puntos");
-                    break;
-                case valor > 225 && valor <= 270:
-                    //nada
-                    categoria = "6";
-                    alert("No has sumado puntos");
-                    break;
-                case valor > 270 && valor <= 315:
-                    //70
-                    categoria = "7";
-                    alert("Has sumado 70 puntos");
-                    break;
-                case valor > 315 && valor <= 360:
-                    //10
-                    categoria = "-1";
-                    alert("Has sumado 10 puntos");
-                    break;
-            }
-
-            // Enviar la categoría al servidor
-            $.ajax({
-                url: '@Url.Action("Rueda", "Home")',
-                type: 'GET',
-                data: { categoria: categoria }, // Enviando la categoría
-                dataType: 'json',
-                success: function (response) {
-                    // Manejar la respuesta del servidor aquí
-                    console.log(response);
-                },
-                error: function (xhr, status, error) {
-                    console.error('Error en la solicitud AJAX:', status, error);
-                }
-            });
-        }, 6000); // Se espera hasta que termine el giro
-    }
-</script>

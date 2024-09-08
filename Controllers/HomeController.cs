@@ -56,7 +56,7 @@ public class HomeController : Controller
         }
         else if (Juego.Preguntas != null)
         {
-            return View("Jugar");
+            return RedirectToAction("Jugar");
         }
         else
         {
