@@ -61,7 +61,7 @@ public static class BD
             else
             {
                 string sql = "SELECT * FROM Preguntas WHERE IdCategoria = @pIdCategoria AND IdDificultad = @pIdDificultad";
-                ListaPreguntas = db.Query<Preguntas>(sql, new { pIdCategoria = categoria, pIdDificultad = dificultad }).ToList();
+                ListaPreguntas = db.Query<Preguntas>(sql, new { pIdCategoria = categoria}).ToList();
                 return ListaPreguntas;
             }
         }
