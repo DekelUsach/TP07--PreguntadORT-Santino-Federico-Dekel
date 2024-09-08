@@ -41,51 +41,30 @@ public class HomeController : Controller
         {
             return View("Fin");
         }
-
-        var data = new { Success = true, Categoria = categoria }; // Ejemplo de datos
-        return Json(data); // Devolver datos en formato JSON
     }
 
-    public IActionResult Comenzar(string username, int dificultad, int categoria)
+   public IActionResult Comenzar(string username, int dificultad, int categoria)
+{
+    ViewBag.username = username;
+       // Cargar el juego con la categoría y dificultad seleccionadas
+    Juego.CargarPartida(username, dificultad, categoria);
+
+    // Si la categoría es -1, redirigir a la vista de la ruleta
+    if (categoria == -1)
     {
-        Juego.CargarPartida(username, dificultad, categoria);
-
-        if (Juego.Preguntas != null && categoria == -1)
-        {
-            return View("Rueda");
-        }
-        else if (Juego.Preguntas != null)
-        {
-            return View("Jugar");
-        }
-        else
-        {
-            return View("ConfigurarJuego");
-        }
-
+        return View("Rueda");
     }
-    [HttpPost]
-    [HttpPost]
-    public IActionResult GuardarCategoria([FromBody] CategoriaRequest request)
+
+    if (Juego.Preguntas != null)
     {
-        // Convertir el valor recibido de string a int
-        int categoriaSeleccionada;
-        bool conversionExitosa = int.TryParse(request.Categoria, out categoriaSeleccionada);
-
-        // Si la conversión falla, enviamos un error al cliente
-        if (!conversionExitosa)
-        {
-            return BadRequest(new { success = false, message = "Categoría inválida." });
-        }
-
-        // Aquí puedes manejar la lógica con la categoría seleccionada
-        // Por ejemplo, podrías guardarla en la sesión o usarla para otra lógica del juego
-        // Juego.CargarPartida(username, dificultad, categoriaSeleccionada);
-
-        // Retornar una respuesta en formato JSON al cliente
-        return Json(new { success = true, categoria = categoriaSeleccionada });
+        return View("Juego");
+        
     }
-
+    else
+    {
+        return View("ConfigurarJuego");
+    }
+}
 
 
 

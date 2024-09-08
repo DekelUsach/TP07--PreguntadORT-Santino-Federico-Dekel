@@ -1,5 +1,5 @@
 <section class="contenedor">
-    <form action='@Url.Action("Comenzar","Home")' method="get" class="configurar">
+    <form action='@Url.Action("Comenzar","Home")' method="post" class="configurar">
     <p class="mensaje">Ingrese la <strong>Dificultad</strong></p>
         <div class="input_container_dif">
             </p>
@@ -32,7 +32,7 @@
             <input type="text">
         </div>
         <input type="submit" value="JUGAR">
-        <input type="hidden">
+        <input type="hidden" name="dificultad" value="1">
     </form>
  
     <a href='@Url.Action("Rueda","Home")'>ashvdlisabvalisdbvalsidyasdljsabndkljasbdkjlbdv</a>
