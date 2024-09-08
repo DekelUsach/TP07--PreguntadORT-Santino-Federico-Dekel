@@ -49,22 +49,42 @@ public class HomeController : Controller
        // Cargar el juego con la categoría y dificultad seleccionadas
     Juego.CargarPartida(username, dificultad, categoria);
 
-    // Si la categoría es -1, redirigir a la vista de la ruleta
-    if (categoria == -1)
+        if (Juego.Preguntas != null && categoria == -1)
+        {
+            return View("Rueda");
+        }
+        else if (Juego.Preguntas != null)
+        {
+            return RedirectToAction("Jugar");
+        }
+        else
+        {
+            return View("ConfigurarJuego");
+        }
+
+    }
+    [HttpPost]
+    [HttpPost]
+    public IActionResult GuardarCategoria([FromBody] CategoriaRequest request)
     {
-        return View("Rueda");
+        // Convertir el valor recibido de string a int
+        int categoriaSeleccionada;
+        bool conversionExitosa = int.TryParse(request.Categoria, out categoriaSeleccionada);
+
+        // Si la conversión falla, enviamos un error al cliente
+        if (!conversionExitosa)
+        {
+            return BadRequest(new { success = false, message = "Categoría inválida." });
+        }
+
+        // Aquí puedes manejar la lógica con la categoría seleccionada
+        // Por ejemplo, podrías guardarla en la sesión o usarla para otra lógica del juego
+        // Juego.CargarPartida(username, dificultad, categoriaSeleccionada);
+
+        // Retornar una respuesta en formato JSON al cliente
+        return Json(new { success = true, categoria = categoriaSeleccionada });
     }
 
-    if (Juego.Preguntas != null)
-    {
-        return View("Juego");
-        
-    }
-    else
-    {
-        return View("ConfigurarJuego");
-    }
-}
 
 
 

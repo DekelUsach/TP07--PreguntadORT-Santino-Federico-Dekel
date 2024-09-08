@@ -1,39 +1,35 @@
 <section class="contenedor">
-    <form action='@Url.Action("Comenzar","Home")' method="post" class="configurar">
-    <p class="mensaje">Ingrese la <strong>Dificultad</strong></p>
+    <form action='@Url.Action("Comenzar","Home")' method="get" class="configurar">
         <div class="input_container_dif">
-            </p>
+        <p class="mensaje">Ingrese la <strong>Dificultad</strong></p>
             @{
                 foreach (Dificultades dif in ViewBag.Dificultad)
                 {
                     <div class="dif_option">
-                        <input name="dificultad" id='@dif.IdDificultad' type="radio" value="@dif.IdDificultad" class="dif_input">
-                        <label class="dif_label" for="@dif.IdDificultad">@dif.Nombre</label>
+                        <input name="dificultad" required id='dif_@dif.IdDificultad' type="radio" value="@dif.IdDificultad" class="dif_input">
+                        <label class="dif_label" for="dif_@dif.IdDificultad">@dif.Nombre</label>
                     </div>
                 }
             }
         </div>
-        <!--
         <div class="input_container_cat">
-            <p class="mensaje">Ingrese la <strong>Categoria</strong></p>
+        <p class="mensaje">Ingrese la <strong>Categoria</strong></p>
             @{
                 foreach (Categorias cat in ViewBag.Categorias)
                 {
-                    <div>
-                        <input name="categoria" id='c@cat.IdCategoria' type="radio" value='c@cat.IdCategoria' class="cat_option">
-                        <label class="cat_label" for="@cat.IdCategoria"><img src="~/Images/@cat.Foto" class="cat_img"></label>
+                    <div class="dif_option">
+                        <input name="categoria" required id='cat_@cat.IdCategoria' type="radio" value="@cat.IdCategoria" class="dif_input">
+                        <label class="dif_label" for="cat_@cat.IdCategoria">@cat.Nombre</label>
                     </div>
                 }
             }
         </div>
-        -->
         <div class="input_container_username">
-            <label>Ingrese su nombre de usuario:</label>
-            <input type="text">
+            <p class="mensaje">Ingrese su <strong>Nombre de Usuario</strong></p>
+            <input type="text" required placeholder="Username" class="username_input">
         </div>
         <input type="submit" value="JUGAR">
-        <input type="hidden" name="dificultad" value="1">
     </form>
- 
-    <a href='@Url.Action("Rueda","Home")'>ashvdlisabvalisdbvalsidyasdljsabndkljasbdkjlbdv</a>
+
+    <a href='@Url.Action("Comenzar","Home")'>ashvdlisabvalisdbvalsidyasdljsabndkljasbdkjlbdv</a>
 </section>
