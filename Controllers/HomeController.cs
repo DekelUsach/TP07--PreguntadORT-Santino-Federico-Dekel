@@ -94,8 +94,11 @@ public class HomeController : Controller
         List<Respuestas> respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
         if (pregunta != null)
         {
+            ViewBag.Categorias = BD.ObtenerCategorias();
             ViewBag.pregunta = pregunta;
             ViewBag.respuestas = respuestas;
+            ViewBag.Username = Juego.Username;
+            ViewBag.PuntajeActual = Juego.PuntajeActual;
             return View("Juego");
         }
         else

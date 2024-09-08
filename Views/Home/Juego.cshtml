@@ -1,5 +1,33 @@
-@{
-    ViewData["Title"] = "Juego";
-}
+<section class="contenedor_juego">
+    @foreach(Categorias cat in ViewBag.Categorias){
+        if(cat.IdCategoria == ViewBag.pregunta.IdCategoria)
+        {
+            <div class="cat" style="background-color: @cat.ColorAsociado">
+                <p>@cat.Nombre</p>
+            </div>
+        }
+    }
 
-<h1>jueguinioi</h1>
+    <div class="info_user">
+        <p>Username: @ViewBag.Username</p>
+        <p>Puntaje: @ViewBag.PuntajeActual</p>
+    </div>
+
+    <form action='@Url.Action("VerificarRespuesta","Home")' method="post" class="pregunta">
+        <div class="enunciado">
+            <p>@ViewBag.pregunta.Enunciado</p>
+        </div>
+        <div class="input_container_res">
+        @{
+            foreach (Respuestas res in ViewBag.respuestas)
+            {
+                <div class="dif_option">
+                    <input name="categoria" required id='res_@res.IdRespuesta' type="radio" value="@res.IdRespuesta" class="dif_input">
+                    <label class="dif_label" for="res_@res.IdRespuesta">@res.Contenido</label>
+                </div>
+            }
+        }
+        </div>
+        <input type="submit" value="Verificar" class="jugar">
+    </form>
+</section>
