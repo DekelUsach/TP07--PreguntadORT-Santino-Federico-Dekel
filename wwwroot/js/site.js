@@ -18,3 +18,13 @@ htmlColorMode.addEventListener("click", () => {
     document.getElementById("themeSelector").src = localStorage.getItem("img");
 });
 
+
+const difInput = document.querySelector('.dif_input')
+
+difInput.addEventListener('click', function () 
+{
+
+
+
+}
+)

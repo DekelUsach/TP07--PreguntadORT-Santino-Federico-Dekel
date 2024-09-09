@@ -195,6 +195,7 @@ html {
 .input_container_username {
   height: 180px;
 }
+/*DIFS*/
 .dif_option {
   background-color: #aaa;
   width: 100%;
@@ -231,7 +232,45 @@ input[type="radio"]:checked + .dif_label {
   color: white;
   font-weight: bold;
 }
+/*CATS*/
+.cat_option {
+  background-color: #aaa;
+  width: 100%;
+  height: 50px;
+  border-radius: 15px;
+  
+}
 
+.cat_input {
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.cat_label {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  cursor: pointer;
+  padding-top: 5px; 
+}
+
+.cat_option:hover {
+  cursor: pointer;
+}
+
+
+.cat_option:has(.cat_input:checked) {
+  background-color: #228B22;
+}
+
+input[type="radio"]:checked + .cat_label {
+  color: white;
+  font-weight: bold;
+}
+
+/*USERNAME*/
 .username_input {
   width: 100%;
   height: 70px;

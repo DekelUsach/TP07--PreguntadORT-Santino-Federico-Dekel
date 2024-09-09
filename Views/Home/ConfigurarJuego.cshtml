@@ -17,9 +17,9 @@
             @{
                 foreach (Categorias cat in ViewBag.Categorias)
                 {
-                    <div class="dif_option">
-                        <input name="categoria" required id='cat_@cat.IdCategoria' type="radio" value="@cat.IdCategoria" class="dif_input">
-                        <label class="dif_label" for="cat_@cat.IdCategoria">@cat.Nombre</label>
+                    <div class="cat_option">
+                        <input name="categoria" required id='cat_@cat.IdCategoria' type="radio" value="@cat.IdCategoria" class="cat_input">
+                        <label class="cat_label" for="cat_@cat.IdCategoria">@cat.Nombre</label>
                     </div>
                 }
             }

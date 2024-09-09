@@ -15,6 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+
         return View();
     }
 
@@ -31,10 +32,15 @@ public class HomeController : Controller
     {
         Preguntas pregunta = Juego.ObtenerProximaPreguntaCategoria(categoria);
         List<Respuestas> respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
+        Random rnd = new Random();
+
+        List<Respuestas> respDesord = respuestas.OrderBy(x => rnd.Next()).ToList();
+
+
         if (pregunta != null)
         {
             ViewBag.pregunta = pregunta;
-            ViewBag.respuestas = respuestas;
+            ViewBag.respuestas = respDesord;
             return View("Juego");
         }
         else
@@ -43,11 +49,11 @@ public class HomeController : Controller
         }
     }
 
-   public IActionResult Comenzar(string username, int dificultad, int categoria)
-{
-    ViewBag.username = username;
-       // Cargar el juego con la categoría y dificultad seleccionadas
-    Juego.CargarPartida(username, dificultad, categoria);
+    public IActionResult Comenzar(string username, int dificultad, int categoria)
+    {
+        ViewBag.username = username;
+        // Cargar el juego con la categoría y dificultad seleccionadas
+        Juego.CargarPartida(username, dificultad, categoria);
 
         if (Juego.Preguntas != null && categoria == -1)
         {
@@ -67,21 +73,17 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult GuardarCategoria([FromBody] CategoriaRequest request)
     {
-        // Convertir el valor recibido de string a int
+
         int categoriaSeleccionada;
         bool conversionExitosa = int.TryParse(request.Categoria, out categoriaSeleccionada);
 
-        // Si la conversión falla, enviamos un error al cliente
+
         if (!conversionExitosa)
         {
             return BadRequest(new { success = false, message = "Categoría inválida." });
         }
 
-        // Aquí puedes manejar la lógica con la categoría seleccionada
-        // Por ejemplo, podrías guardarla en la sesión o usarla para otra lógica del juego
-        // Juego.CargarPartida(username, dificultad, categoriaSeleccionada);
 
-        // Retornar una respuesta en formato JSON al cliente
         return Json(new { success = true, categoria = categoriaSeleccionada });
     }
 
@@ -92,11 +94,20 @@ public class HomeController : Controller
     {
         Preguntas pregunta = Juego.ObtenerProximaPregunta();
         List<Respuestas> respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
+
+
+
+        Random rnd = new Random();
+
+        List<Respuestas> respDesord = respuestas.OrderBy(x => rnd.Next()).ToList();
+
+
+
         if (pregunta != null)
         {
             ViewBag.Categorias = BD.ObtenerCategorias();
             ViewBag.pregunta = pregunta;
-            ViewBag.respuestas = respuestas;
+            ViewBag.respuestas = respDesord;
             ViewBag.Username = Juego.Username;
             ViewBag.PuntajeActual = Juego.PuntajeActual;
             return View("Juego");

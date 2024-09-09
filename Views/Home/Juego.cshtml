@@ -21,6 +21,7 @@
         @{
             foreach (Respuestas res in ViewBag.respuestas)
             {
+                
                 <div class="dif_option">
                     <input name="categoria" required id='res_@res.IdRespuesta' type="radio" value="@res.IdRespuesta" class="dif_input">
                     <label class="dif_label" for="res_@res.IdRespuesta">@res.Contenido</label>
