@@ -1,4 +1,6 @@
-﻿@{
+﻿
+<!-- asbdsia bdsiabds -->
+@{
     ViewData["Title"] = "Privacy Policy";
 }
 
@@ -26,41 +28,60 @@
         setTimeout(() => {
             switch (true) {
                 case valor > 0 && valor <= 45:
-                    categoria = "1";
-                    alert("Has ganado y te has llevado 500");
+                    categoria = "-1";
+                    alert("Te ha tocado todo");
+                    // alert("Has ganado y te has llevado 500");
                     break;
                 case valor > 45 && valor <= 90:
-                    categoria = "2";
-                    alert("Has ganado 20 USD");
+                    categoria = "7";
+                    alert("Computacion");
+                    // alert("Has ganado 20 USD");
                     break;
                 case valor > 90 && valor <= 135:
-                    categoria = "3";
-                    alert("Has sumado 5 puntos");
+                    //historia
+                    
+                    categoria = "6";
+                    alert("Historia");
+                    // alert("Has sumado 5 puntos");
                     break;
                 case valor > 135 && valor <= 180:
-                    categoria = "4";
-                    alert("Has sumado 50 puntos");
+                    
+                    categoria = "5";
+                    alert("Geografia");
+                    // alert("Has sumado 50 puntos");
                     break;
                 case valor > 180 && valor <= 225:
-                    categoria = "5";
-                    alert("Has sumado 100 puntos");
+                    //entretenimiento
+                    categoria = "4";
+                    alert("Entretenimiento");
+                    // alert("Has sumado 100 puntos");
                     break;
                 case valor > 225 && valor <= 270:
-                    categoria = "6";
-                    alert("No has sumado puntos");
+                    //deportes
+                    categoria = "3";
+                    alert("Deporte");
+                    // alert("No has sumado puntos");
                     break;
                 case valor > 270 && valor <= 315:
-                    categoria = "7";
-                    alert("Has sumado 70 puntos");
+                    //ciencia
+                    categoria = "2";
+                    alert("Ciencia");
+                    // alert("Has sumado 70 puntos");
                     break;
                 case valor > 315 && valor <= 360:
-                    categoria = "-1";
-                    alert("Has sumado 10 puntos");
+                    //artes
+                    categoria = "1";
+                    alert("Artes");
+                    // alert("Has sumado 10 puntos");
                     break;
-            }
+                    
 
+            }
+                console.log(categoria);
+                console.log(valor);
             // Enviar el valor de la categoría al controlador
-            fetch('/Home/GuardarCategoria', {
+          
+             fetch('/Home/GuardarCategoria', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -77,7 +98,6 @@
                 .catch((error) => {
                     console.error('Error al enviar la categoría:', error);
                 });
-
 
         }, 6000);
     }

@@ -1,6 +1,6 @@
-﻿const html = document.querySelector("#tema");
-const htmlColorMode = document.querySelector(".site-theme");
-html.setAttribute("data-bs-theme", localStorage.getItem("tema"));
+﻿// const html = document.querySelector("#tema");
+// const htmlColorMode = document.querySelector(".site-theme");
+// html.setAttribute("data-bs-theme", localStorage.getItem("tema"));
 
 document.getElementById("themeSelector").src = localStorage.getItem("img");
 
