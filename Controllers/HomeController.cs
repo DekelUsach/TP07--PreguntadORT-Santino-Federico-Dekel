@@ -52,6 +52,8 @@ public class HomeController : Controller
     public IActionResult Comenzar(string username, int dificultad, int categoria)
     {
         ViewBag.username = username;
+
+        TempData["UserName"] = ViewBag.username;
         // Cargar el juego con la categoría y dificultad seleccionadas
         Juego.CargarPartida(username, dificultad, categoria);
 
@@ -104,7 +106,7 @@ public class HomeController : Controller
             ViewBag.Categorias = BD.ObtenerCategorias();
             ViewBag.pregunta = pregunta;
             ViewBag.respuestas = respDesord;
-            ViewBag.Username = Juego.Username;
+            ViewBag.Username =  TempData["UserName"];
             ViewBag.PuntajeActual = Juego.PuntajeActual;
             return View("Juego");
         }
