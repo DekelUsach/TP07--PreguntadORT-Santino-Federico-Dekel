@@ -1,4 +1,5 @@
-﻿const html = document.querySelector("#tema");
+﻿const anime = require('animejs');
+const html = document.querySelector("#tema");
 const htmlColorMode = document.querySelector(".site-theme");
 html.setAttribute("data-bs-theme", localStorage.getItem("tema"));
 
@@ -21,10 +22,3 @@ htmlColorMode.addEventListener("click", () => {
 
 const difInput = document.querySelector('.dif_input')
 
-difInput.addEventListener('click', function () 
-{
-
-
-
-}
-)

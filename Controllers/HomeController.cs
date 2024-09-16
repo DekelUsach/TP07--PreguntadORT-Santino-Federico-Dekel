@@ -94,11 +94,7 @@ public class HomeController : Controller
     {
         Preguntas pregunta = Juego.ObtenerProximaPregunta();
         List<Respuestas> respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
-
-
-
         Random rnd = new Random();
-
         List<Respuestas> respDesord = respuestas.OrderBy(x => rnd.Next()).ToList();
 
 
