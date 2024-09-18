@@ -61,8 +61,25 @@
                     break;
             }
 
+            window.location.replace("/Home/Rueda?categoria="+categoriaLO );
+             // Comenzar(string username, int dificultad, int categoria)
+/*
+            console.log(categoriaLO)
+            $.ajax(
+                {
+                    type:"POST",
+                    dataType : "JSON",
+                    url: '/Home/GuardarCategoria',
+                    data:{ categoria:categoriaLO},
+                    success:
+                        function (response)
+                        {
+                            console.log(response);
+                        }
+                }
+            );*/
             // Enviar el valor de la categoría al controlador
-            fetch('/Home/GuardarCategoria', {
+            /*fetch('/Home/GuardarCategoria', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -78,7 +95,7 @@
             })
             .catch((error) => {
                 console.error('Error al enviar la categoría:', error);
-            });
+            });*/
 
         }, 6000);
     }

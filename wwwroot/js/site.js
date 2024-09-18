@@ -38,3 +38,8 @@ correcta.addEventListener("click", () =>
     console.log(idRespuesta);
 
 })
+incorrecta.addEventListener("click", () => {
+    incorrecta.classList = "incorrecta";s
+
+
+})

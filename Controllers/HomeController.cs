@@ -41,6 +41,9 @@ public class HomeController : Controller
         {
             ViewBag.pregunta = pregunta;
             ViewBag.respuestas = respDesord;
+            ViewBag.Categorias = BD.ObtenerCategorias();
+            ViewBag.Username = Juego.Username;
+            ViewBag.PuntajeActual = Juego.PuntajeActual;
             return View("Juego");
         }
         else
@@ -70,23 +73,8 @@ public class HomeController : Controller
 
     }
 
-    [HttpPost]
-    public IActionResult GuardarCategoria([FromBody] CategoriaRequest request)
-    {
 
-        int categoriaSeleccionada;
-        bool conversionExitosa = int.TryParse(request.Categoria, out categoriaSeleccionada);
-
-
-        if (!conversionExitosa)
-        {
-            return BadRequest(new { success = false, message = "Categoría inválida." });
-        }
-
-        
-
-        return Json(new { success = true, categoria = categoriaSeleccionada });
-    }
+   
 
 
 

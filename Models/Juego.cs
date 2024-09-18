@@ -51,10 +51,11 @@ public static class Juego
                 {
                     PreguntasCategoria.Add(pregunta);
                 }
-                Random rnd = new();
-                int randNum = rnd.Next(0, PreguntasCategoria.Count());
-                preguntaRetornada = PreguntasCategoria[randNum];
+                
             }
+                Random rnd = new();
+                int randNum = rnd.Next(0, PreguntasCategoria.Count()-1);
+                preguntaRetornada = PreguntasCategoria[randNum];
         }
         return preguntaRetornada;
     }
