@@ -79,17 +79,18 @@ public static class Juego
     public static bool VerificarRespuesta(int idPregunta, int idRespuesta, string respuesta)
     // Recibe un id de pregunta y un id de respuesta, y retorna un booleano indicando si la respuesta fue correcta o incorrecta.
     {
-        Preguntas.RemoveAt(idPregunta);
-        if (Respuestas[idRespuesta].Contenido == respuesta)
+        Preguntas.RemoveAt(idPregunta-1);
+
+        if (Respuestas[idRespuesta-1].Correcta)
         {
             PuntajeActual+=100;
             CantidadPreguntasCorrectas++;
-            return true;
+            return Respuestas[idRespuesta-1].Correcta;
         }
         else
         {
             PuntajeActual-=40;
-            return false;
+            return Respuestas[idRespuesta-1].Correcta;
         }
     }
 }

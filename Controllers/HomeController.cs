@@ -74,7 +74,10 @@ public class HomeController : Controller
     }
 
 
-   
+   public IActionResult Respuesta(){
+    
+    return View();
+   }
 
 
 
@@ -103,13 +106,13 @@ public class HomeController : Controller
         }
     }
 
-    public IActionResult VerificarRespuesta(int idPregunta, int idRespuesta, string respuesta)
+    public IActionResult VerificarRespuestaController(int idPregunta, int idRespuesta, string respuesta)
     {
         bool resultado = Juego.VerificarRespuesta(idPregunta, idRespuesta, respuesta);
         ViewBag.resultado = resultado;
         if (!resultado)
         {
-            ViewBag.respuestaCorrecta = Juego.Respuestas[idRespuesta];
+            ViewBag.respuestaCorrecta = Juego.Respuestas[idRespuesta-1  ];
         }
         return View("Respuesta");
     }

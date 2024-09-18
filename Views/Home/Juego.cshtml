@@ -13,7 +13,7 @@
         <p>Puntaje: @ViewBag.PuntajeActual</p>
     </div>
 
-    <form action='@Url.Action("VerificarRespuesta","Home")' method="post" class="pregunta">
+    <div class="pregunta">
         <div class="enunciado">
             <p>@ViewBag.pregunta.Enunciado</p>
         </div>
@@ -21,13 +21,18 @@
         @{
             foreach (Respuestas res in ViewBag.respuestas)
             { 
-                <div class="res_option_@res.Correcta.ToString()">
-                    <input name="categoria" required id='res_@res.IdRespuesta' type="radio" value="@res.IdRespuesta" class="res_input_@res.Correcta" data-pregunta ="@res.IdPregunta">
+                
+                <form action='@Url.Action("VerificarRespuestaController","Home")' method="post"class="pregunta" class="res_option_@res.Correcta.ToString()">
+                    <input type = "hidden" value="@res.IdPregunta" name = "idPregunta">
+                    <input type = "hidden" value="@res.IdRespuesta" name = "idRespuesta">
+                    <input type = "hidden" value ="@res.Contenido" name = "respuesta">
+                    <input name="categoria" required id='res_@res.IdRespuesta' type="submit" value="@res.IdRespuesta" class="res_input_@res.Correcta" data-pregunta ="@res.IdPregunta">
                     <label class="res_label" for="res_@res.IdRespuesta">@res.Contenido</label>
-                </div>
+                   
+
+                </form>
             }
         }
         </div>
-        <input type="submit" value="Verificar" class="jugar">
-    </form>
+    </div>
 </section>
