@@ -20,9 +20,9 @@
         <div class="input_container_res">
         @{
             foreach (Respuestas res in ViewBag.respuestas)
-            {
-                <div class="res_option">
-                    <input name="categoria" required id='res_@res.IdRespuesta' type="radio" value="@res.IdRespuesta" class="res_input">
+            { 
+                <div class="res_option_@res.Correcta.ToString()">
+                    <input name="categoria" required id='res_@res.IdRespuesta' type="radio" value="@res.IdRespuesta" class="res_input_@res.Correcta" data-pregunta ="@res.IdPregunta">
                     <label class="res_label" for="res_@res.IdRespuesta">@res.Contenido</label>
                 </div>
             }

@@ -196,15 +196,17 @@ html {
   height: 180px;
 }
 /*DIFS*/
-.dif_option,  .res_option {
+.dif_option,  .res_option_True, .correcta, .res_option_False {
   background-color: #aaa;
   width: 100%;
   height: 50px;
   border-radius: 15px;
   
 }
-
-.dif_input, .res_input {
+.correcta{
+  background-color: #228B22;
+}
+.dif_input, .res_input_True, .res_input_False {
   width: 100%;
   height: 100%;
   display: none;

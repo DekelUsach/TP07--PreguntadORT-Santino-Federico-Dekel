@@ -14,7 +14,7 @@
     const ruleta = document.querySelector("#ruleta");
     ruleta.addEventListener("click", girar);
     let dinero = 50;
-    let categoria;
+    let categoriaLO;
     function girar() {
         let rand = Math.random() * 7200;
         calcular(rand);
@@ -28,76 +28,57 @@
         setTimeout(() => {
             switch (true) {
                 case valor > 0 && valor <= 45:
-                    categoria = "-1";
+                    categoriaLO = "-1";
                     alert("Te ha tocado todo");
-                    // alert("Has ganado y te has llevado 500");
                     break;
                 case valor > 45 && valor <= 90:
-                    categoria = "7";
+                    categoriaLO = "7";
                     alert("Computacion");
-                    // alert("Has ganado 20 USD");
                     break;
                 case valor > 90 && valor <= 135:
-                    //historia
-                    
-                    categoria = "6";
+                    categoriaLO = "6";
                     alert("Historia");
-                    // alert("Has sumado 5 puntos");
                     break;
                 case valor > 135 && valor <= 180:
-                    
-                    categoria = "5";
+                    categoriaLO = "5";
                     alert("Geografia");
-                    // alert("Has sumado 50 puntos");
                     break;
                 case valor > 180 && valor <= 225:
-                    //entretenimiento
-                    categoria = "4";
+                    categoriaLO = "4";
                     alert("Entretenimiento");
-                    // alert("Has sumado 100 puntos");
                     break;
                 case valor > 225 && valor <= 270:
-                    //deportes
-                    categoria = "3";
+                    categoriaLO = "3";
                     alert("Deporte");
-                    // alert("No has sumado puntos");
                     break;
                 case valor > 270 && valor <= 315:
-                    //ciencia
-                    categoria = "2";
+                    categoriaLO = "2";
                     alert("Ciencia");
-                    // alert("Has sumado 70 puntos");
                     break;
                 case valor > 315 && valor <= 360:
-                    //artes
-                    categoria = "1";
+                    categoriaLO = "1";
                     alert("Artes");
-                    // alert("Has sumado 10 puntos");
                     break;
-                    
-
             }
-                console.log(categoria);
-                console.log(valor);
+
             // Enviar el valor de la categoría al controlador
-          
-             fetch('/Home/GuardarCategoria', {
+            fetch('/Home/GuardarCategoria', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ categoria: categoria })
+                body: JSON.stringify({ categoria: categoriaLO }) // Usa categoriaLO aquí
             })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Redirigir a la vista Jugar una vez que se ha guardado la categoría
-                        window.location.href = '/Home/Jugar';
-                    }
-                })
-                .catch((error) => {
-                    console.error('Error al enviar la categoría:', error);
-                });
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Redirigir a la vista Jugar una vez que se ha guardado la categoría
+                    window.location.href = '/Home/Jugar';
+                }
+            })
+            .catch((error) => {
+                console.error('Error al enviar la categoría:', error);
+            });
 
         }, 6000);
     }
