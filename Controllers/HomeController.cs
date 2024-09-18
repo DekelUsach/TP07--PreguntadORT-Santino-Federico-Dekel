@@ -112,7 +112,7 @@ public class HomeController : Controller
         ViewBag.resultado = resultado;
         if (!resultado)
         {
-            ViewBag.respuestaCorrecta = Juego.Respuestas[idRespuesta-1  ];
+            ViewBag.respuestaCorrecta = Juego.Respuestas[idRespuesta-1];
         }
         return View("Respuesta");
     }

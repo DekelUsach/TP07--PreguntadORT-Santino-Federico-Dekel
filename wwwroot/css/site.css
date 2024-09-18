@@ -1,5 +1,7 @@
 * {
   font-family: "Josefin Sans", "sans-serif";
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -302,10 +304,20 @@ input[type="radio"]:checked + .cat_label {
 }
 /* Wheel */
 
-.ruletaaaa {
-  width: 100%;
+.pb-3
+{
+display: flex;
+justify-content: center;
+align-items: center;
 }
+.titulo_rueda{
+  width: 100%;
+  color: white;
+}
+.ruleta
+{
 
+}
 .vara {
 	height: 70px;
 	width: 15px;
@@ -391,3 +403,4 @@ img {
 .Correct{
   color: white;
 }
+
