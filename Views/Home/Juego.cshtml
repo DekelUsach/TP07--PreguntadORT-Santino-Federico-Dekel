@@ -22,14 +22,12 @@
             foreach (Respuestas res in ViewBag.respuestas)
             { 
                 
-                <form action='@Url.Action("VerificarRespuestaController","Home")' method="post"class="pregunta" class="res_option_@res.Correcta.ToString()">
+                <form action='@Url.Action("VerificarRespuestaController","Home")' method="post" class="respuestas" class="res_option_@res.Correcta.ToString()">
                     <input type = "hidden" value="@res.IdPregunta" name = "idPregunta">
                     <input type = "hidden" value="@res.IdRespuesta" name = "idRespuesta">
                     <input type = "hidden" value ="@res.Contenido" name = "respuesta">
-                    <input name="categoria" required id='res_@res.IdRespuesta' type="submit" value=""   class="res_option" data-pregunta ="@res.IdPregunta">
+                    <input name="categoria" required id='res_@res.IdRespuesta' type="submit" value="" class="res_option_@res.Correcta.ToString()"  data-pregunta ="@res.IdPregunta">
                     <label class="res_label" for="res_@res.IdRespuesta">@res.Contenido</label>
-                   
-
                 </form>
             }
         }

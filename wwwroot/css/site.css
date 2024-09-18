@@ -403,9 +403,14 @@ img {
   margin-top: 30px;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
-.res_option {
+.respuestas {
+  width: 100%;
+}
+
+.res_option,.res_option_False, .res_option_True {
   width: 970px;
   height: 50px;
   background-color: #aaa;
@@ -416,7 +421,7 @@ img {
 .res_label {
   text-align: center;
   width: 100%;
-  font-size: 30px;
+  font-size: 26px;
   cursor: pointer;
   position: relative;
   top: 0;

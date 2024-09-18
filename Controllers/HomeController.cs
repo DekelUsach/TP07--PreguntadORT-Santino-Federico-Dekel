@@ -114,6 +114,7 @@ public class HomeController : Controller
         {
             ViewBag.respuestaCorrecta = Juego.Respuestas[idRespuesta-1];
         }
+        Thread.Sleep(2500);
         return View("Respuesta");
     }
 
