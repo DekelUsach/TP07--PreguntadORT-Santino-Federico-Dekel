@@ -397,7 +397,30 @@ img {
   font-size: 30px;
 }
 
-.Correct{
-  color: white;
+.input_container_res {
+  width: 1000px;
+  height: 290px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
+
+.res_option {
+  width: 970px;
+  height: 50px;
+  background-color: #aaa;
+  border-radius: 15px;
+  position: absolute;
+}
+
+.res_label {
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  cursor: pointer;
+  position: relative;
+  top: 0;
+}
+
+
 
