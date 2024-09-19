@@ -1,3 +1,7 @@
+@{
+    ViewData["Title"] = "Preguntas";
+}
+
 <section class="contenedor_juego">
     @foreach(Categorias cat in ViewBag.Categorias){
         if(cat.IdCategoria == ViewBag.pregunta.IdCategoria)

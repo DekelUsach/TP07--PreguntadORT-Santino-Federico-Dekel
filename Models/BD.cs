@@ -70,6 +70,7 @@ public static class BD
     {
         List<Respuestas> ListaRespuestas = new List<Respuestas>();
         List<Respuestas> RespuestasProvisionales = new List<Respuestas>();
+        
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
             foreach(Preguntas pregunta in ListaPreguntas)
@@ -80,5 +81,24 @@ public static class BD
             }
         }
         return ListaRespuestas;
+    }
+    public static void MandarUser(string Username, int Puntaje)
+    {
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "INSERT INTO Usuarios (Username, Puntaje) VALUES (@pUsername, @pPuntaje)";
+            db.Query<Usuarios>(sql, new { pUsername = Username, pPuntaje = Puntaje});
+        }
+    }
+    public static List<Usuarios> ObtenerUsers()
+    {
+        List<Usuarios> ListaUsuarios = new List<Usuarios>();
+
+        using (SqlConnection db = new SqlConnection(_connectionString))
+        {
+            string sql = "SELECT TOP 25 * FROM Usuarios ORDER BY Puntaje ASC";
+            ListaUsuarios = db.Query<Usuarios>(sql).ToList();
+        }
+        return ListaUsuarios;
     }
 }

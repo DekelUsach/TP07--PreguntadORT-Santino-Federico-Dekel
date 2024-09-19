@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Ranking";
+}
+
+<!-- LEADERBOARD -->
+
+<h1>RANKING</h1>
+
+ <div class="input_container_dif">
+    <p class="mensaje">Ingrese la <strong>Dificultad</strong></p>
+    @{
+        foreach(Usuarios user in ViewBag.Usuarios)
+        {
+            // Estaría bueno hacer una pantalla grande en el medio que tenga el nombre a la izquierda y el puntaje a la derecha. Si encontramos una tipografía tipo Arcade mejor.
+            if(user.Username == null)
+            {
+                <p>Anonimo</p>
+            }
+            else
+            {
+                <p>@user.Username</p>
+            }
+
+            <p>@user.Puntaje</p>
+        }
+    }
+</div>
