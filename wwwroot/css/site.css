@@ -197,17 +197,19 @@ html {
 .input_container_username {
   height: 180px;
 }
+/*Respuesta*/
+.respuesta, .correcta{
+  color: white;
+}
 /*DIFS*/
-.dif_option,  .res_option_True, .correcta, .res_option_False {
+.dif_option,  .res_option_True, .res_option_False {
   background-color: #aaa;
   width: 100%;
   height: 50px;
   border-radius: 15px;
   
 }
-.correcta{
-  background-color: #228B22;
-}
+
 .dif_input, .res_input_True, .res_input_False {
   width: 100%;
   height: 100%;
