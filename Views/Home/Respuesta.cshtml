@@ -1,6 +1,7 @@
 @if(ViewBag.resultado){
-    <h1 class = "Correct">correcta @ViewBag.resultado</h1>
+    <h1 class = "respuesta">correcta @ViewBag.resultado</h1>
 }
 else{
-    <h1 class = "Correct">Incorrecta @ViewBag.resultado</h1>
+    <h1 class = "respuesta">¡Su respuesta ha sido incorrecta!</h1>
+    <p class = "correcta">La respuesta correcta era @ViewBag.respuestaCorrecta</p>
 }

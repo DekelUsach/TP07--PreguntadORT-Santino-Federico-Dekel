@@ -105,9 +105,37 @@ public class HomeController : Controller
     {
         bool resultado = Juego.VerificarRespuesta(idPregunta, idRespuesta, respuesta);
         ViewBag.resultado = resultado;
+        List<Respuestas> respProvisoria = Juego.Respuestas;
+        int espacioR = 0;
+        int contadorR = 0;
+                foreach(Respuestas res in Juego.Respuestas)
+                {
+                    if(res.IdRespuesta == idRespuesta)  
+                    {
+                        
+                        espacioR = contadorR;      
+                    }
+                    
+                    contadorR++;
+                }
+                //Solucionar este error
+                int contador = 0;
+                int espacio = 0;
+                foreach(Respuestas res in respProvisoria)
+                {
+                    if(res.IdPregunta != idPregunta){
+                        respProvisoria.RemoveAt(espacio);
+
+                    }
+                    if(res.IdPregunta == idPregunta){
+                        espacio =contador;
+                    }
+                    contador++;
+                }
+
         if (!resultado)
         {
-            ViewBag.respuestaCorrecta = Juego.Respuestas[idRespuesta-1];
+            ViewBag.respuestaCorrecta = respProvisoria[espacio];
         }
         Thread.Sleep(2500);
         return View("Respuesta");
