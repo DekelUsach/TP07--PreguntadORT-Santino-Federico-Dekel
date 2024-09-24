@@ -21,24 +21,25 @@
 
 
 
-const correcta = document.querySelector(".res_option_True");
-console.log( correcta );
-const incorrecta = document.querySelectorAll(".res_option_False");
+// const correcta = document.querySelector(".res_option_True");
+// console.log( correcta );
+// const incorrecta = document.querySelectorAll(".res_option_False");
 
 
-correcta.addEventListener("click", () => 
-{
-    const idPregunta = document.querySelector(".res_input_True");
-    correcta.classList = "correcta";
+// correcta.addEventListener("click", () => 
+// {
+//     event.preventDefault();
+//     const idPregunta = document.querySelector(".res_input_True");
+//     correcta.classList = "correcta";
 
-    const idPreguntaF = idPregunta.dataset.pregunta;
-    const idRespuesta = idPregunta.value;
-    console.log(idPreguntaF)
-    console.log(idRespuesta);
+//     const idPreguntaF = idPregunta.dataset.pregunta;
+//     const idRespuesta = idPregunta.value;
+//     console.log(idPreguntaF)
+//     console.log(idRespuesta);
 
-})
-incorrecta.addEventListener("click", () => {
-    incorrecta.classList = "incorrecta";s
+// })
+// incorrecta.addEventListener("click", () => {
+//     incorrecta.classList = "incorrecta";s
 
 
-})
+// })

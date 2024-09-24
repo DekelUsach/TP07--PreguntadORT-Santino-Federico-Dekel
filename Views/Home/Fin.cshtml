@@ -1,0 +1,18 @@
+@{
+    ViewData["Title"] = "Game Over";
+}
+
+<!-- GAME OVER -->
+
+<h1>FIN</h1>
+
+@{
+    if (ViewBag.Guardado = false)
+    {
+        <a href='@Url.Action("MandarUser", "Home")'>Guardar resultados</a>
+    }
+    else
+    {
+        <p>GUARDADO</p>
+    }
+}

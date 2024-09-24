@@ -55,6 +55,7 @@ public class HomeController : Controller
     public IActionResult Comenzar(string username, int dificultad, int categoria)
     {
         ViewBag.username = username;
+
         // Cargar el juego con la categoría y dificultad seleccionadas
         Juego.CargarPartida(username, dificultad, categoria);
 
@@ -73,14 +74,10 @@ public class HomeController : Controller
 
     }
 
-
    public IActionResult Respuesta(){
     
     return View();
    }
-
-
-
 
     public IActionResult Jugar()
     {
@@ -88,8 +85,6 @@ public class HomeController : Controller
         List<Respuestas> respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
         Random rnd = new Random();
         List<Respuestas> respDesord = respuestas.OrderBy(x => rnd.Next()).ToList();
-
-
 
         if (pregunta != null)
         {
@@ -110,12 +105,67 @@ public class HomeController : Controller
     {
         bool resultado = Juego.VerificarRespuesta(idPregunta, idRespuesta, respuesta);
         ViewBag.resultado = resultado;
+        List<Respuestas> respProvisoria = Juego.Respuestas;
+        int espacioR = 0;
+        int contadorR = 0;
+                foreach(Respuestas res in Juego.Respuestas)
+                {
+                    if(res.IdRespuesta == idRespuesta)  
+                    {
+                        
+                        espacioR = contadorR;      
+                    }
+                    
+                    contadorR++;
+                }
+                //Solucionar este error
+                int contador = 0;
+                int espacio = 0;
+                foreach(Respuestas res in respProvisoria)
+                {
+                    if(res.IdPregunta != idPregunta){
+                        respProvisoria.RemoveAt(espacio);
+
+                    }
+                    if(res.IdPregunta == idPregunta){
+                        espacio =contador;
+                    }
+                    contador++;
+                }
+
         if (!resultado)
         {
-            ViewBag.respuestaCorrecta = Juego.Respuestas[idRespuesta-1];
+            ViewBag.respuestaCorrecta = respProvisoria[espacio];
         }
         Thread.Sleep(2500);
         return View("Respuesta");
+    }
+
+    public IActionResult Ruleta()
+    {
+        return View();
+    }
+
+    public IActionResult Ranking()
+    {
+        List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
+
+        ViewBag.Usuarios = UsuariosTop25;
+
+        return View();
+    }
+
+    public IActionResult Fin()
+    {
+        ViewBag.Guardado = false;
+        return View();
+    }
+
+    public IActionResult MandarUser()
+    {
+        ViewBag.Guardado = true;
+        BD.MandarUser(Juego.Username, Juego.PuntajeActual);
+        return View("Fin");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
