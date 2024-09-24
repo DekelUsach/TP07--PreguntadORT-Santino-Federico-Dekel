@@ -79,41 +79,21 @@ public static class Juego
     public static bool VerificarRespuesta(int idPregunta, int idRespuesta, string respuesta)
     // Recibe un id de pregunta y un id de respuesta, y retorna un booleano indicando si la respuesta fue correcta o incorrecta.
     {
-        int espacio = 0;
-        int contador = 0;
-                foreach(Preguntas preg in Preguntas)
-                {
-                    if(preg.IdPregunta == idPregunta)
-                    {
-                        
-                        espacio = contador;      
-                    }
-                    contador++;
-                }
-                Preguntas.RemoveAt(espacio);
-
-   int espacioR = 0;
-        int contadorR = 0;
-                foreach(Respuestas res in Respuestas)
-                {
-                    if(res.IdRespuesta == idRespuesta)
-                    {
-                        
-                        espacioR = contadorR;      
-                    }
-                    contadorR++;
-                }
-                Preguntas.RemoveAt(espacio);
-        if (Respuestas[espacioR].Correcta)
+        
+        bool correcta;
+         if (Respuestas[idRespuesta].Correcta)
         {
             PuntajeActual+=100;
             CantidadPreguntasCorrectas++;
-            return Respuestas[espacioR].Correcta;
+            correcta = true;
+            Preguntas.RemoveAt(idRespuesta);
+            return correcta;
         }
         else
         {
             PuntajeActual-=40;
-            return Respuestas[espacioR].Correcta;
+            correcta = false;
+            return false;
         }
     }
 }
