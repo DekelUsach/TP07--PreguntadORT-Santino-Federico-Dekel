@@ -116,6 +116,7 @@ public class HomeController : Controller
                     
                     contadorR++;
                 }
+                /*
                 //Solucionar este error
                 int contador = 0;
                 int espacio = 0;
@@ -134,7 +135,7 @@ public class HomeController : Controller
         if (!resultado)
         {
             ViewBag.respuestaCorrecta = respProvisoria[espacio];
-        }
+        }*/
         Thread.Sleep(2500);
         return View("Respuesta");
     }
