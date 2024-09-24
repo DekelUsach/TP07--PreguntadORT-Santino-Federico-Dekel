@@ -30,12 +30,12 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Rueda(int categoria)
     {
+        Juego.idCategoria = categoria;
         Preguntas pregunta = Juego.ObtenerProximaPreguntaCategoria(categoria);
         List<Respuestas> respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
         Random rnd = new Random();
 
         List<Respuestas> respDesord = respuestas.OrderBy(x => rnd.Next()).ToList();
-
 
         if (pregunta != null)
         {
@@ -71,12 +71,11 @@ public class HomeController : Controller
         {
             return View("ConfigurarJuego");
         }
-
     }
 
-   public IActionResult Respuesta(){
-    
-    return View();
+   public IActionResult Respuesta()
+   {
+        return View();
    }
 
     public IActionResult Jugar()
@@ -103,7 +102,7 @@ public class HomeController : Controller
 
     public IActionResult VerificarRespuestaController(int idPregunta, int idRespuesta, string respuesta)
     {
-        bool resultado = Juego.VerificarRespuesta(idPregunta, idRespuesta, respuesta);
+        bool resultado = Juego.VerificarRespuesta(idRespuesta, respuesta);
         ViewBag.resultado = resultado;
         List<Respuestas> respProvisoria = Juego.Respuestas;
         int espacioR = 0;
@@ -112,7 +111,6 @@ public class HomeController : Controller
                 {
                     if(res.IdRespuesta == idRespuesta)  
                     {
-                        
                         espacioR = contadorR;      
                     }
                     

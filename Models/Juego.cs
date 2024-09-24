@@ -6,6 +6,8 @@ public static class Juego
     public static int CantidadPreguntasCorrectas;
     public static List<Preguntas>? Preguntas;
     public static List<Respuestas>? Respuestas;
+    public static int idCategoria;
+    public static int idDificultad;
 
     /* METODOS */
     public static void InicializarJuego()
@@ -76,24 +78,41 @@ public static class Juego
     }
 
 
-    public static bool VerificarRespuesta(int idPregunta, int idRespuesta, string respuesta)
+    public static bool VerificarRespuesta(int idRespuesta, string respuesta)
     // Recibe un id de pregunta y un id de respuesta, y retorna un booleano indicando si la respuesta fue correcta o incorrecta.
     {
-        
         bool correcta;
-         if (Respuestas[idRespuesta].Correcta)
+        bool RIDencontrado = false;
+        int contadorR = 0;
         {
-            PuntajeActual+=100;
-            CantidadPreguntasCorrectas++;
-            correcta = true;
-            Preguntas.RemoveAt(idRespuesta);
-            return correcta;
-        }
-        else
-        {
-            PuntajeActual-=40;
-            correcta = false;
-            return false;
-        }
+            contadorR++;
+            if (Respuestas[contadorR].IdRespuesta == idRespuesta)
+            {
+                RIDencontrado = true;
+                if (Respuestas[contadorR].Correcta)
+                {
+                    PuntajeActual += 100;
+                    CantidadPreguntasCorrectas++;
+                    correcta = true;
+
+                    bool PIDencontrada = false;
+                    int contadorP = 0;
+                    {
+                        contadorP++;
+                        if (Preguntas[contadorP].IdPregunta == Respuestas[contadorR].IdPregunta)
+                        {
+                            Preguntas.RemoveAt(contadorP);
+                        }
+                    } while(!PIDencontrada);
+
+                    return correcta;
+                }
+                else
+                {
+                    PuntajeActual -= 40;
+                    return false;
+                }
+            }
+        } while(!RIDencontrado);
     }
 }
