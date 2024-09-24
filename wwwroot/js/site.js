@@ -28,7 +28,6 @@ const incorrecta = document.querySelectorAll(".res_option_False");
 
 correcta.addEventListener("click", () => 
 {
-    event.preventDefault();
     const idPregunta = document.querySelector(".res_input_True");
     correcta.classList = "correcta";
 
