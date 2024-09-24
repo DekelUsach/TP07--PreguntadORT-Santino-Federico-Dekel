@@ -4,12 +4,7 @@
   padding: 0;
 }
 
-p {
-  color: white;
-}
-h1{
-  color: white;
-}
+
 
 html {
   font-size: 14px;
@@ -511,12 +506,87 @@ img {
 }
 
 
+
+
+
+/* Fija el título en la parte superior de la página */
+.Title {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #381272; /* Mismo color de fondo que la página */
+  padding: 10px 0;
+  font-size: 2.5rem;
+  z-index: 10;
+}
+
+/* Ajusta el contenedor principal para que no se superponga al título */
+.game-over-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 80px 20px 20px; /* Deja espacio para el título fijo */
+  text-align: center;
+  color: white;
+}
+
+/* Agranda el ranking */
+/* Agrandar el ranking */
 .Fondo-Ranking {
   display: flex;
   flex-direction: column;
-
-  width: 50%;
-}
-.Title{
+  align-items: center;
   width: 100%;
+  max-width: 900px; /* Aumentar el ancho máximo */
+}
+
+.pais {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Asegura que los elementos se distribuyan de manera uniforme */
+  padding: 15px;
+  font-size: 1.5rem;
+  height: 70px;
+}
+
+.pais p {
+  margin: 0 20px; /* Agrega un margen lateral para separar el contenido */
+}
+
+.pais div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Añade un espacio entre el ID y el nombre */
+}
+
+.pais div p {
+  margin: 0; /* Asegúrate de que los párrafos dentro del div no tengan márgenes adicionales */
+}
+
+.Fondo-Ranking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+.btn-guardar {
+  padding: 10px 20px;
+  background-color: #43A047;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-guardar:hover {
+  background-color: #228B22;
 }

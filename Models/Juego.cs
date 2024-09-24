@@ -8,7 +8,7 @@ public static class Juego
     public static List<Respuestas>? Respuestas;
     public static int idCategoria;
     public static int idDificultad;
-
+    public static int cantVidas = 3;
     /* METODOS */
     public static void InicializarJuego()
     // Inicializa todos los atributos privados de la clase que dan inicio el juego: username vacío, puntaje actual y cantidad preguntas correctas a 0.
@@ -110,6 +110,7 @@ public static class Juego
                 }
                 else
                 {
+                    cantVidas--;
                     PuntajeActual -= 40;
                     resultado = false;
                 }

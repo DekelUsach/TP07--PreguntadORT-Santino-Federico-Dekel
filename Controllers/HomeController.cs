@@ -37,7 +37,7 @@ public class HomeController : Controller
 
         List<Respuestas> respDesord = respuestas.OrderBy(x => rnd.Next()).ToList();
 
-        if (pregunta != null)
+        if (Juego.cantVidas != 0)
         {
             ViewBag.pregunta = pregunta;
             ViewBag.respuestas = respDesord;
@@ -85,7 +85,7 @@ public class HomeController : Controller
         Random rnd = new Random();
         List<Respuestas> respDesord = respuestas.OrderBy(x => rnd.Next()).ToList();
 
-        if (pregunta != null)
+        if (Juego.cantVidas != 0)
         {
             ViewBag.Categorias = BD.ObtenerCategorias();
             ViewBag.pregunta = pregunta;
