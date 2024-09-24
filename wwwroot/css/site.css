@@ -4,6 +4,13 @@
   padding: 0;
 }
 
+p {
+  color: white;
+}
+h1{
+  color: white;
+}
+
 html {
   font-size: 14px;
 }
@@ -29,8 +36,7 @@ header {
 }
 
 /*Boton Cambiar tema*/
-#boton-cambiar-tema-light
-{
+#boton-cambiar-tema-light {
   margin: 0;
   border: 0;
   padding: 0;
@@ -40,21 +46,24 @@ header {
   margin-right: 20px;
   margin-top: 15px;
 }
-#boton-cambiar-tema:hover{
- border: solid 1px black; 
+
+#boton-cambiar-tema:hover {
+  border: solid 1px black;
 }
-#boton-cambiar-tema-light img{
+
+#boton-cambiar-tema-light img {
   padding: 0;
   margin: 0;
   border: 0;
   width: 100%;
 }
-#boton-cambiar-tema-light:hover{
-  background-color: #28242c ;
+
+#boton-cambiar-tema-light:hover {
+  background-color: #28242c;
   border: solid 1px black;
 }
-#boton-cambiar-tema-dark
-{
+
+#boton-cambiar-tema-dark {
   margin: 0;
   border: 0;
   padding: 0;
@@ -64,26 +73,37 @@ header {
   margin-right: 20px;
   margin-top: 15px;
 }
-#boton-cambiar-tema-dark:hover{
+
+#boton-cambiar-tema-dark:hover {
   background-color: white;
   border: solid 1px white;
 }
-#boton-cambiar-tema-dark img{
+
+#boton-cambiar-tema-dark img {
   padding: 0;
   margin: 0;
   border: 0;
   width: 100%;
 }
-.pb-3{
+
+.pb-3 {
   display: flex;
   justify-content: end;
 }
+
 @media (min-width: 1200px) {
-  .container, .container-lg, .container-md, .container-sm, .container-xl {
-  max-width: 100%;
-  padding: 0;
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    max-width: 100%;
+    padding: 0;
   }
-  }html {
+}
+
+html {
   font-size: 14px;
 }
 
@@ -94,16 +114,23 @@ header {
 }
 
 
-@media (min-width: 1200px)
-{
-  .container, .container-lg, .container-md, .container-sm, .container-xl
-  {
+@media (min-width: 1200px) {
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
     max-width: 100%;
     padding: 0;
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
@@ -112,7 +139,7 @@ html {
   min-height: 100%;
 }
 
-.contenedor{ 
+.contenedor {
   width: 100%;
   height: 88vh;
   display: flex;
@@ -145,8 +172,7 @@ html {
   align-items: center;
 }
 
-.playButton
-{
+.playButton {
   display: block;
   color: #fff;
   text-decoration: none;
@@ -179,7 +205,10 @@ html {
 
 }
 
-.input_container_dif, .input_container_cat, .input_container_username, .input_container_res {
+.input_container_dif,
+.input_container_cat,
+.input_container_username,
+.input_container_res {
   background-color: #fff;
   width: 100%;
   height: 350px;
@@ -189,7 +218,8 @@ html {
   flex-wrap: wrap;
 }
 
-.input_container_cat, .input_container_username {
+.input_container_cat,
+.input_container_username {
   height: 550px;
   margin-top: 50px;
 }
@@ -197,20 +227,27 @@ html {
 .input_container_username {
   height: 180px;
 }
+
 /*Respuesta*/
-.respuesta, .correcta{
+.respuesta,
+.correcta {
   color: white;
 }
+
 /*DIFS*/
-.dif_option,  .res_option_True, .res_option_False {
+.dif_option,
+.res_option_True,
+.res_option_False {
   background-color: #aaa;
   width: 100%;
   height: 50px;
   border-radius: 15px;
-  
+
 }
 
-.dif_input, .res_input_True, .res_input_False {
+.dif_input,
+.res_input_True,
+.res_input_False {
   width: 100%;
   height: 100%;
   display: none;
@@ -222,7 +259,7 @@ html {
   height: 100%;
   font-size: 30px;
   cursor: pointer;
-  padding-top: 5px; 
+  padding-top: 5px;
 }
 
 .dif_option:hover {
@@ -234,17 +271,18 @@ html {
   background-color: #228B22;
 }
 
-input[type="radio"]:checked + .dif_label {
+input[type="radio"]:checked+.dif_label {
   color: white;
   font-weight: bold;
 }
+
 /*CATS*/
 .cat_option {
   background-color: #aaa;
   width: 100%;
   height: 50px;
   border-radius: 15px;
-  
+
 }
 
 .cat_input {
@@ -259,7 +297,7 @@ input[type="radio"]:checked + .dif_label {
   height: 100%;
   font-size: 30px;
   cursor: pointer;
-  padding-top: 5px; 
+  padding-top: 5px;
 }
 
 .cat_option:hover {
@@ -271,7 +309,7 @@ input[type="radio"]:checked + .dif_label {
   background-color: #228B22;
 }
 
-input[type="radio"]:checked + .cat_label {
+input[type="radio"]:checked+.cat_label {
   color: white;
   font-weight: bold;
 }
@@ -286,8 +324,10 @@ input[type="radio"]:checked + .cat_label {
 }
 
 .username_input:focus {
-  outline: none; /* Elimina el borde o resalte predeterminado */
-  box-shadow: none; /* Elimina cualquier sombra si se aplica */
+  outline: none;
+  /* Elimina el borde o resalte predeterminado */
+  box-shadow: none;
+  /* Elimina cualquier sombra si se aplica */
   border-bottom: 6px solid #228B22;
 }
 
@@ -304,38 +344,38 @@ input[type="radio"]:checked + .cat_label {
 .jugar:hover {
   background-color: #228B22;
 }
+
 /* Wheel */
 
-.pb-3
-{
-display: flex;
-justify-content: center;
-align-items: center;
+.pb-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.titulo_rueda{
+
+.titulo_rueda {
   width: 100%;
   color: white;
 }
-.ruleta
-{
 
-}
+.ruleta {}
+
 .vara {
-	height: 70px;
-	width: 15px;
-	background-color: #aaa;
-	margin: auto;
-	position: relative;
-	top: 10px;
-	border-radius: 0px 0px 8px 8px;
-	border: 1px solid #000;
-	border-top: 5px solid #000;
-	z-index: 1000;
+  height: 70px;
+  width: 15px;
+  background-color: #aaa;
+  margin: auto;
+  position: relative;
+  top: 10px;
+  border-radius: 0px 0px 8px 8px;
+  border: 1px solid #000;
+  border-top: 5px solid #000;
+  z-index: 1000;
 }
 
 img {
-	z-index: 100;
-	transition: all 5s
+  z-index: 100;
+  transition: all 5s
 }
 
 
@@ -412,7 +452,9 @@ img {
   width: 100%;
 }
 
-.res_option,.res_option_False, .res_option_True {
+.res_option,
+.res_option_False,
+.res_option_True {
   width: 970px;
   height: 50px;
   background-color: #aaa;
@@ -429,5 +471,52 @@ img {
   top: 0;
 }
 
+/* Ranking */
+.pais {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #999;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+.pais p{
+  color:#000;
+}
+.pais div {
+  width: 200px;
+  height: 40px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pais div img {
+  width: 70px;
+  height: 40px;
+  object-fit: cover;
+}
+
+.pais form input {
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 70px;
+}
 
 
+.Fondo-Ranking {
+  display: flex;
+  flex-direction: column;
+
+  width: 50%;
+}
+.Title{
+  width: 100%;
+}

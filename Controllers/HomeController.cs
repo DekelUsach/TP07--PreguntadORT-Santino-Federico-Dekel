@@ -152,7 +152,7 @@ public class HomeController : Controller
 
         ViewBag.Usuarios = UsuariosTop25;
 
-        return View();
+        return View("Fin");
     }
 
     public IActionResult Fin()

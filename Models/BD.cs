@@ -86,7 +86,7 @@ public static class BD
     {
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "INSERT INTO Usuarios (Username, Puntaje) VALUES (@pUsername, @pPuntaje)";
+            string sql = "INSERT INTO Usuarios (Nombre, Puntaje) VALUES (@pUsername, @pPuntaje)";
             db.Query<Usuarios>(sql, new { pUsername = Username, pPuntaje = Puntaje});
         }
     }

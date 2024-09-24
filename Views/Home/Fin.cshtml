@@ -3,11 +3,22 @@
 }
 
 <!-- GAME OVER -->
-
-<h1>FIN</h1>
+<h1 class = "Title">¡Felicitaciones, ha terminado el preguntados con u</h1>
+<div class="Fondo-Ranking"> <!-- Mover la clase aquí -->
+    @foreach (Usuarios usu in ViewBag.Usuarios)
+    {
+        <div class="pais">
+            <p>@usu.IdUsuario</p>
+            <div>
+                <p>@usu.Nombre</p>
+            </div>
+            <p>Puntaje: @usu.Puntaje</p>
+        </div>
+    }
+</div>
 
 @{
-    if (ViewBag.Guardado = false)
+    if (ViewBag.Guardado == false) // Cambiar '=' a '=='
     {
         <a href='@Url.Action("MandarUser", "Home")'>Guardar resultados</a>
     }
