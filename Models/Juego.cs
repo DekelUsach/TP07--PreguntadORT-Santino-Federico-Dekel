@@ -6,6 +6,8 @@ public static class Juego
     public static int CantidadPreguntasCorrectas;
     public static List<Preguntas>? Preguntas;
     public static List<Respuestas>? Respuestas;
+    public static int idCategoria;
+    public static int idDificultad;
 
     /* METODOS */
     public static void InicializarJuego()
@@ -76,24 +78,43 @@ public static class Juego
     }
 
 
-    public static bool VerificarRespuesta(int idPregunta, int idRespuesta, string respuesta)
+    public static bool VerificarRespuesta(int idRespuesta, string respuesta)
     // Recibe un id de pregunta y un id de respuesta, y retorna un booleano indicando si la respuesta fue correcta o incorrecta.
     {
-        
-        bool correcta;
-         if (Respuestas[idRespuesta].Correcta)
+        bool resultado = true;
+        bool RespuestaIDencontrado = false;
+        int contadorR = 0;
+        do 
         {
-            PuntajeActual+=100;
-            CantidadPreguntasCorrectas++;
-            correcta = true;
-            Preguntas.RemoveAt(idRespuesta);
-            return correcta;
-        }
-        else
-        {
-            PuntajeActual-=40;
-            correcta = false;
-            return false;
-        }
+            contadorR++;
+            if (Respuestas[contadorR].IdRespuesta == idRespuesta)
+            {
+                RespuestaIDencontrado = true;
+
+                bool PreguntaIDencontrada = false;
+                int contadorP = 0;
+                do
+                {
+                contadorP++;
+                if (Preguntas[contadorP].IdPregunta == Respuestas[contadorR].IdPregunta)
+                {
+                    Preguntas.RemoveAt(contadorP);
+                }
+                } while(PreguntaIDencontrada);
+
+                if (Respuestas[contadorR].Correcta)
+                {
+                    PuntajeActual += 100;
+                    CantidadPreguntasCorrectas++;
+                    resultado = true;
+                }
+                else
+                {
+                    PuntajeActual -= 40;
+                    resultado = false;
+                }
+            }
+        } while(!RespuestaIDencontrado);
+        return resultado;
     }
 }
