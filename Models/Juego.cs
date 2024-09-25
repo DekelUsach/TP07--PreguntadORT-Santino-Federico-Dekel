@@ -1,14 +1,16 @@
 public static class Juego
 {
     /* ATRIBUTOS */
+    public static bool CategoriaUnica = false;
     public static string? Username;
     public static int PuntajeActual;
     public static int CantidadPreguntasCorrectas;
-    public static List<Preguntas>? Preguntas;
-    public static List<Respuestas>? Respuestas;
     public static int idCategoria;
     public static int idDificultad;
     public static int cantVidas = 3;
+    public static List<Preguntas>? Preguntas;
+    public static List<Respuestas>? Respuestas;
+    
     /* METODOS */
     public static void InicializarJuego()
     // Inicializa todos los atributos privados de la clase que dan inicio el juego: username vacío, puntaje actual y cantidad preguntas correctas a 0.

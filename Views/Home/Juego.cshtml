@@ -25,7 +25,6 @@
         @{
             foreach (Respuestas res in ViewBag.respuestas)
             { 
-                
                 <form action='@Url.Action("VerificarRespuestaController","Home")' method="post" class="respuestas" class="res_option_@res.Correcta.ToString()">
                     <input type = "hidden" value="@res.IdPregunta" name = "idPregunta">
                     <input type = "hidden" value="@res.IdRespuesta" name = "idRespuesta">

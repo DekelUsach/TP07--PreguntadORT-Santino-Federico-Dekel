@@ -65,6 +65,7 @@ public class HomeController : Controller
         }
         else if (Juego.Preguntas != null)
         {
+            Juego.CategoriaUnica = true;
             return RedirectToAction("Jugar");
         }
         else
@@ -73,10 +74,23 @@ public class HomeController : Controller
         }
     }
 
-   public IActionResult Respuesta()
-   {
-        return View();
-   }
+    public IActionResult Respuesta()
+    {
+        return View("Respuesta");
+    }
+
+    public IActionResult Continuar()
+    {
+        Thread.Sleep(1500);
+        if (Juego.CategoriaUnica)
+        {
+            return RedirectToAction("Jugar");
+        }
+        else
+        {
+            return View("Rueda");
+        }
+    }
 
     public IActionResult Jugar()
     {
@@ -136,7 +150,7 @@ public class HomeController : Controller
         {
             ViewBag.respuestaCorrecta = respProvisoria[espacio];
         }*/
-        Thread.Sleep(2500);
+        Thread.Sleep(1500);
         return View("Respuesta");
     }
 
