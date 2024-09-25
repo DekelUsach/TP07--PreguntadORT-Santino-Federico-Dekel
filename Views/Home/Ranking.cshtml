@@ -1,7 +1,36 @@
-@{
-    ViewData["Title"] = "Ranking";
-}
+<!-- GAME OVER -->
+<div class="game-over-container">
 
-<!-- LEADERBOARD -->
+    <div class="Fondo-Ranking">
+      @{
+            int contador = 1;
+            foreach (Usuarios usu in ViewBag.Usuarios)
+            {
+                <div class="pais">
+                    <p>@contador</p>
+                    <div>
+                        <p class="nombreichi">@usu.Nombre</p>
+                    </div>
+                    <p>Puntaje: @usu.Puntaje</p>
+                </div>
+                contador++;
+            } 
+        }
+            <div class="btn-guardar-container">
+                <form method="post" action='@Url.Action("MandarUser", "Home")'>
+                    <button type="submit" class="btn-guardar">Guardar Ranking</button>
+                    <input type="hidden" value="true" name="guarda">
+                </form>
+                <form method="post" action='@Url.Action("MandarUser", "Home")'>
+                    <button type="submit" class="btn-guardar">No guardar Ranking</button>
+                    <input type="hidden" value="false" name="guarda">
 
-<h1>RANKING</h1>
+                </form>
+            </div>
+        
+    </div>
+
+
+
+    
+</div>

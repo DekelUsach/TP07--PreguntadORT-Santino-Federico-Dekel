@@ -1,11 +1,12 @@
 <!-- GAME OVER -->
-<div class="game-over-container">
+<div class="Title-container">
     <h1 class="Title">¡Felicitaciones, ha terminado el preguntados con un puntaje de @Juego.PuntajeActual!</h1>
-
+</div>
+<div class="game-over-container">
     <div class="Fondo-Ranking">
         @{
             int contador = 1;
-            /*foreach (Usuarios usu in ViewBag.Usuarios)
+            foreach (Usuarios usu in ViewBag.Usuarios)
             {
                 <div class="pais">
                     <p>@contador</p>
@@ -15,27 +16,7 @@
                     <p>Puntaje: @usu.Puntaje</p>
                 </div>
                 contador++;
-            }*/
-            <div class="btn-guardar-container">
-                <form method="post" action="@Url.Action("MandarUser", "Home")">
-                    <button type="submit" class="btn-guardar">Guardar Ranking</button>
-                    <input type="hidden" value="true" name="guarda">
-                </form>
-                <form method="post" action="@Url.Action("MandarUser", "Home")">
-                    <button type="submit" class="btn-guardar">No guardar Ranking</button>
-                    <input type="hidden" value="false" name="guarda">
-
-                </form>
-            </div>
+            } 
         }
     </div>
-
-
-
-    @{
-        if (ViewBag.Guardado == true)
-        {
-            <p style="text-align: center;">GUARDADO</p>
-        }
-    }
 </div>

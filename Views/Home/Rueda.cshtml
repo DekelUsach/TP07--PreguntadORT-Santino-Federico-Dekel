@@ -1,6 +1,4 @@
-﻿
-<!-- asbdsia bdsiabds -->
-@{
+﻿@{
     ViewData["Title"] = "RULETAA";
 }
 <div class="info_user">
@@ -17,10 +15,16 @@
 <script>
     //wheel
     const ruleta = document.querySelector("#ruleta");
+    let isSpinning = false;  // Flag para evitar múltiples clics
     ruleta.addEventListener("click", girar);
+
     let dinero = 50;
     let categoriaLO;
+
     function girar() {
+        if (isSpinning) return;  // Si ya está girando, no permitir más clics
+        isSpinning = true;  // Marcar la ruleta como girando
+
         let rand = Math.random() * 7200;
         calcular(rand);
     }
@@ -67,41 +71,7 @@
             }
 
             window.location.replace("/Home/Rueda?categoria="+categoriaLO );
-             // Comenzar(string username, int dificultad, int categoria)
-/*
-            console.log(categoriaLO)
-            $.ajax(
-                {
-                    type:"POST",
-                    dataType : "JSON",
-                    url: '/Home/GuardarCategoria',
-                    data:{ categoria:categoriaLO},
-                    success:
-                        function (response)
-                        {
-                            console.log(response);
-                        }
-                }
-            );*/
-            // Enviar el valor de la categoría al controlador
-            /*fetch('/Home/GuardarCategoria', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ categoria: categoriaLO }) // Usa categoriaLO aquí
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    // Redirigir a la vista Jugar una vez que se ha guardado la categoría
-                    window.location.href = '/Home/Jugar';
-                }
-            })
-            .catch((error) => {
-                console.error('Error al enviar la categoría:', error);
-            });*/
-
+          
         }, 6000);
     }
 

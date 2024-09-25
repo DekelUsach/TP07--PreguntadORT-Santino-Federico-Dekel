@@ -36,9 +36,12 @@ public class HomeController : Controller
         Random rnd = new Random();
 
         List<Respuestas> respDesord = respuestas.OrderBy(x => rnd.Next()).ToList();
+    List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
 
+        
         if (Juego.cantVidas != 0)
-        {
+        { 
+            ViewBag.Usuarios = UsuariosTop25;
             ViewBag.pregunta = pregunta;
             ViewBag.respuestas = respDesord;
             ViewBag.Categorias = BD.ObtenerCategorias();
@@ -85,7 +88,7 @@ public class HomeController : Controller
         List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
 
         ViewBag.Usuarios = UsuariosTop25;   
-        Thread.Sleep(1500);
+
         if(Juego.Preguntas != null && Juego.cantVidas != 0)
         {
             if (Juego.CategoriaUnica)
@@ -109,9 +112,12 @@ public class HomeController : Controller
         List<Respuestas> respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
         Random rnd = new Random();
         List<Respuestas> respDesord = respuestas.OrderBy(x => rnd.Next()).ToList();
+        List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
 
         if (Juego.cantVidas > 0)
         {
+            
+            ViewBag.Usuarios = UsuariosTop25;
             ViewBag.Categorias = BD.ObtenerCategorias();
             ViewBag.pregunta = pregunta;
             ViewBag.respuestas = respDesord;
@@ -184,7 +190,7 @@ public class HomeController : Controller
     {
          List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
         ViewBag.Usuarios = UsuariosTop25;
-        ViewBag.Guardado = false;
+        
         return View();
     }
 
@@ -194,12 +200,12 @@ public class HomeController : Controller
         ViewBag.Usuarios = UsuariosTop25;
         if(guarda)
         {
-            ViewBag.Guardado = true;
+            
         BD.MandarUser(Juego.Username, Juego.PuntajeActual);
 
         }
         else{
-            ViewBag.Guardado = false;
+           
         }
                 return RedirectToAction("Fin");
     }

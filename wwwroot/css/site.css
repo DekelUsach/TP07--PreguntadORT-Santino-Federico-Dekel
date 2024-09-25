@@ -232,7 +232,7 @@ html {
 /*DIFS*/
 .dif_option,
 .res_option_True,
-.res_option_False {
+.res_option_False, .bienRespondido {
   background-color: #aaa;
   width: 100%;
   height: 50px;
@@ -453,7 +453,7 @@ img {
 
 .res_option,
 .res_option_False,
-.res_option_True {
+.res_option_True, .bienRespondido {
   width: 970px;
   height: 50px;
   background-color: #aaa;
@@ -509,18 +509,25 @@ img {
   width: 70px;
 }
 
-
+.home{
+  position: fixed;
+  top: 0;
+}
 
 
 
 /* Fija el título en la parte superior de la página */
+.Title-container{
+  display: flex;
+
+}
 .Title {
-  position: fixed;
+  color: white;
   top: 0;
   width: 100%;
   text-align: center;
   background-color: #381272; /* Mismo color de fondo que la página */
-  padding: 10px 0;
+  padding: 10px 0;  
   font-size: 2.5rem;
   z-index: 10;
 }
