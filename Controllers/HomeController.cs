@@ -86,14 +86,21 @@ public class HomeController : Controller
 
         ViewBag.Usuarios = UsuariosTop25;   
         Thread.Sleep(1500);
-        if (Juego.CategoriaUnica)
+        if(Juego.Preguntas != null && Juego.cantVidas != 0)
         {
-            return RedirectToAction("Jugar");
+            if (Juego.CategoriaUnica)
+            {
+                return RedirectToAction("Jugar");
+            }
+            else
+            {
+                return View("Rueda");
+            }
         }
-        else
-        {
-            return View("Rueda");
+        else{
+            return View("Fin");
         }
+        
     }
 
     public IActionResult Jugar()
