@@ -1,14 +1,8 @@
-@{
-    ViewData["Title"] = "Fin";
-}
-
 <!-- GAME OVER -->
-<div class="Title-container">
-    <h1 class="Title">¡Felicitaciones, ha terminado el preguntados con un puntaje de @Juego.PuntajeActual!</h1>
-</div>
 <div class="game-over-container">
+
     <div class="Fondo-Ranking">
-        @{
+      @{
             int contador = 1;
             foreach (Usuarios usu in ViewBag.Usuarios)
             {
@@ -23,16 +17,20 @@
             } 
         }
             <div class="btn-guardar-container">
-                <form method="post" action="@Url.Action("MandarUser", "Home")">
+                <form method="post" action='@Url.Action("MandarUser", "Home")'>
                     <button type="submit" class="btn-guardar">Guardar Ranking</button>
                     <input type="hidden" value="true" name="guarda">
                 </form>
-                <form method="post" action="@Url.Action("MandarUser", "Home")">
+                <form method="post" action='@Url.Action("MandarUser", "Home")'>
                     <button type="submit" class="btn-guardar">No guardar Ranking</button>
                     <input type="hidden" value="false" name="guarda">
 
                 </form>
             </div>
-        }
+        
     </div>
+
+
+
+    
 </div>
