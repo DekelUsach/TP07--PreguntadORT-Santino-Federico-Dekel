@@ -420,13 +420,17 @@ img {
 
 
 .info_user {
-  width: 350px;
-  height: 100px;
+  display: flex;
+  flex-direction:column;
+  width: 100%;
+  max-width: 350px;
+  height: px;
   background-color: #fff;
   position: absolute;
   left: -20px;
   top: 215px;
   border-radius: 15px;
+  margin-left: 40px;
 }
 
 .info_user p {

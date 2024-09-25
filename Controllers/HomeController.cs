@@ -44,6 +44,8 @@ public class HomeController : Controller
             ViewBag.Categorias = BD.ObtenerCategorias();
             ViewBag.Username = Juego.Username;
             ViewBag.PuntajeActual = Juego.PuntajeActual;
+            ViewBag.vida = Juego.cantVidas;
+
             return View("Juego");
         }
         else
@@ -54,7 +56,6 @@ public class HomeController : Controller
 
     public IActionResult Comenzar(string username, int dificultad, int categoria)
     {
-        ViewBag.username = username;
 
         // Cargar el juego con la categoría y dificultad seleccionadas
         Juego.CargarPartida(username, dificultad, categoria);
@@ -99,13 +100,14 @@ public class HomeController : Controller
         Random rnd = new Random();
         List<Respuestas> respDesord = respuestas.OrderBy(x => rnd.Next()).ToList();
 
-        if (Juego.cantVidas != 0)
+        if (Juego.cantVidas > 0)
         {
             ViewBag.Categorias = BD.ObtenerCategorias();
             ViewBag.pregunta = pregunta;
             ViewBag.respuestas = respDesord;
             ViewBag.Username = Juego.Username;
             ViewBag.PuntajeActual = Juego.PuntajeActual;
+            ViewBag.vida = Juego.cantVidas;
             return View("Juego");
         }
         else
@@ -170,6 +172,8 @@ public class HomeController : Controller
 
     public IActionResult Fin()
     {
+         List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
+        ViewBag.Usuarios = UsuariosTop25;
         ViewBag.Guardado = false;
         return View();
     }
@@ -177,7 +181,6 @@ public class HomeController : Controller
     public IActionResult MandarUser(bool guarda)
     {
          List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
-
         ViewBag.Usuarios = UsuariosTop25;
         if(guarda)
         {

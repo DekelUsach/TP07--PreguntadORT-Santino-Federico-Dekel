@@ -7,7 +7,7 @@ public static class Juego
     public static int CantidadPreguntasCorrectas;
     public static int idCategoria;
     public static int idDificultad;
-    public static int cantVidas = 3;
+    public static int cantVidas = 1;
     public static List<Preguntas>? Preguntas;
     public static List<Respuestas>? Respuestas;
     
