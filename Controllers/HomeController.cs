@@ -30,17 +30,22 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Rueda(int categoria)
     {
+        if (categoria == -1)
+        {
+            Random rnd1 = new Random();
+            categoria = rnd1.Next(1, 8);
+        }
         Juego.idCategoria = categoria;
         Preguntas pregunta = Juego.ObtenerProximaPreguntaCategoria(categoria);
         List<Respuestas> respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
         Random rnd = new Random();
 
         List<Respuestas> respDesord = respuestas.OrderBy(x => rnd.Next()).ToList();
-    List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
+        List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
 
-        
+
         if (Juego.cantVidas != 0)
-        { 
+        {
             ViewBag.Usuarios = UsuariosTop25;
             ViewBag.pregunta = pregunta;
             ViewBag.respuestas = respDesord;
@@ -89,9 +94,9 @@ public class HomeController : Controller
     public IActionResult Continuar()
     {
         List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
-        ViewBag.Usuarios = UsuariosTop25;   
+        ViewBag.Usuarios = UsuariosTop25;
 
-        if(Juego.Preguntas != null && Juego.cantVidas != 0)
+        if (Juego.Preguntas != null && Juego.cantVidas != 0)
         {
             if (Juego.CategoriaUnica)
             {
@@ -105,10 +110,11 @@ public class HomeController : Controller
                 return View("Rueda");
             }
         }
-        else{
+        else
+        {
             return View("Fin");
         }
-        
+
     }
 
     public IActionResult Jugar()
@@ -121,7 +127,7 @@ public class HomeController : Controller
 
         if (Juego.cantVidas > 0)
         {
-            
+
             ViewBag.Usuarios = UsuariosTop25;
             ViewBag.Categorias = BD.ObtenerCategorias();
             ViewBag.pregunta = pregunta;
@@ -144,36 +150,36 @@ public class HomeController : Controller
         List<Respuestas> respProvisoria = Juego.Respuestas;
         int espacioR = 0;
         int contadorR = 0;
-                foreach(Respuestas res in Juego.Respuestas)
-                {
-                    if(res.IdRespuesta == idRespuesta)  
-                    {
-                        espacioR = contadorR;      
-                    }
-                    
-                    contadorR++;
-                }
-                /*
-                //Solucionar este error
-                int contador = 0;
-                int espacio = 0;
-                foreach(Respuestas res in respProvisoria)
-                {
-                    if(res.IdPregunta != idPregunta){
-                        respProvisoria.RemoveAt(espacio);
-
-                    }
-                    if(res.IdPregunta == idPregunta){
-                        espacio =contador;
-                    }
-                    contador++;
-                }
-
-        if (!resultado)
+        foreach (Respuestas res in Juego.Respuestas)
         {
-            ViewBag.respuestaCorrecta = respProvisoria[espacio];
-        }*/
-        Thread.Sleep(1500);
+            if (res.IdRespuesta == idRespuesta)
+            {
+                espacioR = contadorR;
+            }
+
+            contadorR++;
+        }
+        /*
+        //Solucionar este error
+        int contador = 0;
+        int espacio = 0;
+        foreach(Respuestas res in respProvisoria)
+        {
+            if(res.IdPregunta != idPregunta){
+                respProvisoria.RemoveAt(espacio);
+
+            }
+            if(res.IdPregunta == idPregunta){
+                espacio =contador;
+            }
+            contador++;
+        }
+
+if (!resultado)
+{
+    ViewBag.respuestaCorrecta = respProvisoria[espacio];
+}*/
+        Thread.Sleep(300);
         return View("Respuesta");
     }
 
@@ -188,26 +194,21 @@ public class HomeController : Controller
 
     public IActionResult Fin()
     {
-         List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
+        List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
         ViewBag.Usuarios = UsuariosTop25;
-        
+
         return View();
     }
 
     public IActionResult MandarUser(bool guarda)
     {
-         List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
+        List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
         ViewBag.Usuarios = UsuariosTop25;
-        if(guarda)
+        if (guarda)
         {
-            
-        BD.MandarUser(Juego.Username, Juego.PuntajeActual);
-
+            BD.MandarUser(Juego.Username, Juego.PuntajeActual);
         }
-        else{
-           
-        }
-                return RedirectToAction("Fin");
+        return View("Index");
     }
 
 

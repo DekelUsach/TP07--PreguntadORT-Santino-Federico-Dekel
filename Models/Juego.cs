@@ -7,7 +7,7 @@ public static class Juego
     public static int CantidadPreguntasCorrectas;
     public static int idCategoria;
     public static int idDificultad;
-    public static int cantVidas = 1;
+    public static int cantVidas = 3;
     public static List<Preguntas>? Preguntas;
     public static List<Respuestas>? Respuestas;
     
@@ -26,7 +26,7 @@ public static class Juego
         Preguntas = BD.ObtenerPreguntas(dificultad, categoria);
         Respuestas = BD.ObtenerRespuestas(Preguntas);
         Username = username;
-        cantVidas = 1;
+        cantVidas = 3;
     }
 
     public static Preguntas ObtenerProximaPregunta()
