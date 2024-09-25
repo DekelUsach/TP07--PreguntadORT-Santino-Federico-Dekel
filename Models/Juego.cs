@@ -26,6 +26,7 @@ public static class Juego
         Preguntas = BD.ObtenerPreguntas(dificultad, categoria);
         Respuestas = BD.ObtenerRespuestas(Preguntas);
         Username = username;
+        cantVidas = 1;
     }
 
     public static Preguntas ObtenerProximaPregunta()
