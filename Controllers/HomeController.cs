@@ -15,7 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-
+        Juego.CategoriaUnica = false;
         return View();
     }
 
