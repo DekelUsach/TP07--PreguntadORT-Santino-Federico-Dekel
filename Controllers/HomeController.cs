@@ -178,6 +178,7 @@ public class HomeController : Controller
         {
             ViewBag.respuestaCorrecta = respProvisoria[espacio];
         }*/
+        Thread.Sleep(300);
         return View("Respuesta");
     }
 
