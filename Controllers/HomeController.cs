@@ -183,7 +183,7 @@ public class HomeController : Controller
 
         ViewBag.Usuarios = UsuariosTop25;
 
-        return View("Fin");
+        return View();
     }
 
     public IActionResult Fin()
@@ -208,6 +208,12 @@ public class HomeController : Controller
            
         }
                 return RedirectToAction("Fin");
+    }
+
+
+    public IActionResult Creditos()
+    {
+        return View();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
