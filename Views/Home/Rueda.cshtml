@@ -1,19 +1,16 @@
-﻿
-<!-- asbdsia bdsiabds -->
-@{
-    ViewData["Title"] = "RULETAA";
-}
-<div class="info_user">
+﻿<section class="contenedor">
+    <div class="info_user">
         <p>Username: @ViewBag.username</p>
         <p>Puntaje: @ViewBag.PuntajeActual</p>
+        <p>Vidas: @ViewBag.vida</p>
     </div>
-<h1 class= "titulo_rueda">Gire la rueda para conseguir una categoria</h1>
+    <h1 class= "titulo_rueda">Gire la rueda para conseguir una categoria</h1>
 
-    <div class="ruleta">
-        <div class="vara"></div>
-            <img src="../Images/ruleta.png" class="img-ruleta" id="ruleta">
-    </div>
-
+        <div class="ruleta">
+            <div class="vara"></div>
+                <img src="../Images/ruleta.png" class="img-ruleta" id="ruleta">
+        </div>
+</section>
 <script>
     //wheel
     const ruleta = document.querySelector("#ruleta");

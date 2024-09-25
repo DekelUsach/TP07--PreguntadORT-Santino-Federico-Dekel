@@ -1,9 +1,14 @@
-@if(ViewBag.resultado){
-    <h1 class = "respuesta">correcta @ViewBag.resultado</h1>
-}
-else {
-    <h1 class = "respuesta">¡Su respuesta ha sido incorrecta!</h1>
-    <p class = "correcta">La respuesta correcta era @ViewBag.respuestaCorrecta</p>
-}
+<section class="contenedor">
+<div class="resultado">
+    @if(ViewBag.resultado){
+        <h1 class = "respuesta">La respuesta es <strong><span style="color: green">CORRECTA</span></strong></h1>
+        <p class="mensaje_res">Eres un genio???</p>
+    }
+    else {
+        <h1 class = "respuesta">La respuesta es <strong><span style="color: red">INCORRECTA</span></strong></h1>
+        <p class="mensaje_res">Más suerte la próxima, tu puedes!</p>
+    }
+</div>
 
-<a href='@Url.Action("Continuar", "Home")' class="playButton">CONTINUAR</a>
+    <a href='@Url.Action("Continuar", "Home")' class="continuarButton">CONTINUAR</a>
+</section>

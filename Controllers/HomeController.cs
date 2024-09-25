@@ -62,6 +62,9 @@ public class HomeController : Controller
 
         if (Juego.Preguntas != null && categoria == -1)
         {
+            ViewBag.Username = Juego.Username;
+            ViewBag.PuntajeActual = Juego.PuntajeActual;
+            ViewBag.vida = Juego.cantVidas;
             return View("Rueda");
         }
         else if (Juego.Preguntas != null)
@@ -83,9 +86,9 @@ public class HomeController : Controller
     public IActionResult Continuar()
     {
         List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
-
         ViewBag.Usuarios = UsuariosTop25;   
-        Thread.Sleep(1500);
+        Thread.Sleep(1500);        
+
         if(Juego.Preguntas != null && Juego.cantVidas != 0)
         {
             if (Juego.CategoriaUnica)
@@ -94,6 +97,9 @@ public class HomeController : Controller
             }
             else
             {
+                ViewBag.Username = Juego.Username;
+                ViewBag.PuntajeActual = Juego.PuntajeActual;
+                ViewBag.vida = Juego.cantVidas;
                 return View("Rueda");
             }
         }
@@ -164,11 +170,6 @@ public class HomeController : Controller
         }*/
         Thread.Sleep(1500);
         return View("Respuesta");
-    }
-
-    public IActionResult Ruleta()
-    {
-        return View();
     }
 
     public IActionResult Ranking()

@@ -227,6 +227,40 @@ html {
 .respuesta,
 .correcta {
   color: white;
+  text-align: center;
+  width: 100%;
+  font-size: 60px;
+}
+
+.mensaje_res {
+  color: white;
+  font-size: 40px;
+  margin-top: 50px;
+}
+
+.resultado {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.continuarButton {
+  color: #fff;
+  text-decoration: none;
+  width: 500px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+  border-radius: 15px;
+  background-color: #333333;
+  transition: 0.3s;
+}
+
+.continuarButton:hover {
+  background-color: #222222;
 }
 
 /*DIFS*/
@@ -351,6 +385,7 @@ input[type="radio"]:checked+.cat_label {
 .titulo_rueda {
   width: 100%;
   color: white;
+  text-align: center;
 }
 
 .ruleta {}
@@ -496,21 +531,6 @@ img {
   gap: 20px;
 }
 
-.pais div img {
-  width: 70px;
-  height: 40px;
-  object-fit: cover;
-}
-
-.pais form input {
-  background-color: #fff;
-  border: 1px solid #000;
-  border-radius: 10px;
-  width: 70px;
-}
-
-
-
 
 
 /* Fija el título en la parte superior de la página */
@@ -565,16 +585,6 @@ img {
   font-size: 30px;
 }
 
-.Fondo-Ranking {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  width: 100%;
-  max-width: 900PX;
-  height: 28vh;
-}
-
 .btn-guardar {
   display: flex;
   justify-content: center;
@@ -603,10 +613,8 @@ img {
 .Fondo-Ranking {
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 100%;
   max-width: 900px;
-  height: 28vh;
 }
 
 .btn-guardar-container {
@@ -614,8 +622,4 @@ img {
   justify-content: center; /* Centra los botones horizontalmente */
   gap: 10px; /* Espacio entre los botones */
   margin-top: 20px; /* Margen superior para separación */
-}
-
-.btn-form {
-  margin: 0; /* Asegura que no haya margen adicional alrededor de los formularios */
 }
