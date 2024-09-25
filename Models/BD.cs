@@ -96,7 +96,7 @@ public static class BD
 
         using (SqlConnection db = new SqlConnection(_connectionString))
         {
-            string sql = "SELECT TOP 25 * FROM Usuarios ORDER BY Puntaje ASC";
+            string sql = "SELECT TOP 25 * FROM Usuarios ORDER BY Puntaje DESC";
             ListaUsuarios = db.Query<Usuarios>(sql).ToList();
         }
         return ListaUsuarios;
