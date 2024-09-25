@@ -82,6 +82,9 @@ public class HomeController : Controller
 
     public IActionResult Continuar()
     {
+        List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
+
+        ViewBag.Usuarios = UsuariosTop25;   
         Thread.Sleep(1500);
         if (Juego.CategoriaUnica)
         {

@@ -88,20 +88,20 @@ public static class Juego
         int contadorR = 0;
         do 
         {
-            contadorR++;
             if (Respuestas[contadorR].IdRespuesta == idRespuesta)
             {
                 RespuestaIDencontrado = true;
 
-                bool PreguntaIDencontrada = false;
+                bool PreguntaIDencontrada = true;
                 int contadorP = 0;
                 do
                 {
-                contadorP++;
-                if (Preguntas[contadorP].IdPregunta == Respuestas[contadorR].IdPregunta)
-                {
-                    Preguntas.RemoveAt(contadorP);
-                }
+                    if (Preguntas[contadorP].IdPregunta == Respuestas[contadorR].IdPregunta)
+                    {
+                        PreguntaIDencontrada = false;
+                        Preguntas.RemoveAt(contadorP);
+                    }
+                    contadorP++;
                 } while(PreguntaIDencontrada);
 
                 if (Respuestas[contadorR].Correcta)
@@ -117,6 +117,7 @@ public static class Juego
                     resultado = false;
                 }
             }
+            contadorR++;
         } while(!RespuestaIDencontrado);
         return resultado;
     }
