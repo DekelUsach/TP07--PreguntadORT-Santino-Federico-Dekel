@@ -30,6 +30,11 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Rueda(int categoria)
     {
+        if (categoria == -1)
+        {
+            Random rnd1 = new Random();
+            categoria = rnd1.Next(1, 8);
+        }
         Juego.idCategoria = categoria;
         Preguntas pregunta = Juego.ObtenerProximaPreguntaCategoria(categoria);
         List<Respuestas> respuestas = Juego.ObtenerProximasRespuestas(pregunta.IdPregunta);
@@ -173,7 +178,6 @@ public class HomeController : Controller
         {
             ViewBag.respuestaCorrecta = respProvisoria[espacio];
         }*/
-        Thread.Sleep(1500);
         return View("Respuesta");
     }
 
@@ -196,7 +200,7 @@ public class HomeController : Controller
 
     public IActionResult MandarUser(bool guarda)
     {
-         List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
+        List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
         ViewBag.Usuarios = UsuariosTop25;
         if(guarda)
         {
