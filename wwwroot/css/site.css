@@ -531,17 +531,10 @@ img {
   padding: 80px 20px 20px; /* Deja espacio para el título fijo */
   text-align: center;
   color: white;
+  width: 50%;  
 }
 
-/* Agranda el ranking */
-/* Agrandar el ranking */
-.Fondo-Ranking {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 900px; /* Aumentar el ancho máximo */
-}
+
 
 .pais {
   display: flex;
@@ -565,17 +558,23 @@ img {
 
 .pais div p {
   margin: 0; /* Asegúrate de que los párrafos dentro del div no tengan márgenes adicionales */
+  font-size: 30px;
 }
 
 .Fondo-Ranking {
   display: flex;
   flex-direction: column;
   align-items: center;
+  
   width: 100%;
-  max-width: 900px;
+  max-width: 900PX;
+  height: 28vh;
 }
 
 .btn-guardar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 10px 20px;
   background-color: #43A047;
   color: #fff;
@@ -589,4 +588,30 @@ img {
 
 .btn-guardar:hover {
   background-color: #228B22;
+}
+.nombreichi {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  max-width: 200px; 
+}
+
+.Fondo-Ranking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  height: 28vh;
+}
+
+.btn-guardar-container {
+  display: flex; /* Usar flexbox para alinear los botones en línea */
+  justify-content: center; /* Centra los botones horizontalmente */
+  gap: 10px; /* Espacio entre los botones */
+  margin-top: 20px; /* Margen superior para separación */
+}
+
+.btn-form {
+  margin: 0; /* Asegura que no haya margen adicional alrededor de los formularios */
 }

@@ -174,11 +174,21 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult MandarUser()
+    public IActionResult MandarUser(bool guarda)
     {
-        ViewBag.Guardado = true;
+         List<Usuarios> UsuariosTop25 = BD.ObtenerUsers();
+
+        ViewBag.Usuarios = UsuariosTop25;
+        if(guarda)
+        {
+            ViewBag.Guardado = true;
         BD.MandarUser(Juego.Username, Juego.PuntajeActual);
-        return View("Fin");
+
+        }
+        else{
+            ViewBag.Guardado = false;
+        }
+                return RedirectToAction("Fin");
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
